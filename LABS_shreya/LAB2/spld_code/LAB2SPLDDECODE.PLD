@@ -1,0 +1,24 @@
+Name     LAB2SPLDDECODE ;
+PartNo   00 ;
+Date     9/29/2017 ;
+Revision 01 ;
+Designer Engineer ;
+Company  University of Colorado ;
+Assembly None ;
+Location  ;
+Device   g16v8a ;
+
+/* *************** INPUT PINS *********************/
+PIN   2  =  A15                       ; /*A15 IS THE INPUT*/ 
+
+/* *************** OUTPUT PINS *********************/
+PIN   12  =  CE                       ; /* chip enable is taken as the output*/
+/*
+ * Logic:  examples of simple gates expressed in CUPL
+ */
+CE = A15;  /* A15 is connected to the chip enable pin of the nvram. When a15 is 0 the chip is enabled and when a15 is 1 the chip is disabled. This way  the memory map is adjusted to addresss 0000h to 7fffh*/
+
+
+
+
+

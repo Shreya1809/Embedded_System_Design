@@ -1,0 +1,29 @@
+0000:                       .ORG 0000H                      ;/*reset address*/
+0000: 02 00 40              LJMP INIT                       ;/*long jump to mai
+                                                            
+000B:                       .ORG 000BH                      ;/*interrupt vector
+000B: B2 90                         CPL P1.0                ;/toggling unused p
+000D: C2 8D                         CLR TF0                         ;/*clear ti
+000F: C2 8C                         CLR TR0                         ;/*stop tim
+0011: 75 89 01                      MOV TMOD,#01H           ;/*timer 1 mode 1, 
+0014: 75 8C B7                      MOV TH0,#0xB7           ;/*high reset value
+0017: 75 8A FE                      MOV TL0,#0xFE           ;/*low reset value 
+001A: D2 8C                         SETB TR0                ;/*start timer*/
+001C: B8 14 04                      CJNE R0,#20, HERE       ;/*check counter R0
+001F: B2 95                         CPL P1.5                ;/*toggle led port*
+0021: 78 00                         MOV R0,#00              ;/*reinitialise cou
+0023: 08                    HERE:   INC R0                  ;/*if counter not e
+0024: 32                            RETI                    ;/*return to the ma
+0040:                       .ORG 0040H
+                                    
+0040: 78 00                 INIT:   MOV R0,#00              ;/*initial value of
+0042: 75 89 01              MAIN:   MOV TMOD,#01H           ;/*timer 1 mode 1, 
+0045: 75 A8 82                      MOV IE,#82H             ;/*setting EA=1 and
+0048: C2 8D                         CLR TF0                         ;/* clear t
+004A: 75 8C B7                      MOV TH0,#0xB7           ;/*high reset value
+004D: 75 8A FE                      MOV TL0,#0xFE           ;/*low reset value 
+0050: D2 8C                         SETB TR0                ;/*start timer*/
+0052: 80 FE                 WAIT:   SJMP WAIT               ;/* wait untill the
+                                    
+                            
+                   

@@ -1,0 +1,26 @@
+Name     LAB3ESD ;
+PartNo   00 ;
+Date     10/4/2017 ;
+Revision 01 ;
+Designer Engineer ;
+Company  University of Colorado ;
+Assembly None ;
+Location  ;
+Device   g16v8a ;
+
+/* *************** INPUT PINS *********************/
+PIN   2  =  A15                       ; /*A15 IS THE INPUT*/ 
+PIN   3  =  A14				;/*A14 to a11 are all inputs*/
+PIN   4  =  A13;
+PIN   5  =  A12;
+PIN   6  =  A11;
+PIN   7  =  A10;			     
+
+/* *************** OUTPUT PINS *********************/
+PIN   12  =  ENABLE                       ; /* enable is given to the chip enable of the nvsram*/
+/*
+ * Logic:  examples of simple gates expressed in CUPL
+ */
+ENABLE = !(!A15 & (A14#A13#A12#A11#A10)) ; 
+
+

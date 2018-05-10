@@ -1,0 +1,3506 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : free open source ANSI-C Compiler
+                              3 ; Version 3.0.0 #6037 (Oct 31 2010) (MINGW32)
+                              4 ; This file was generated Sat Dec 09 23:16:44 2017
+                              5 ;--------------------------------------------------------
+                              6 	.module user_interface
+                              7 	.optsdcc -mmcs51 --model-large
+                              8 	
+                              9 ;--------------------------------------------------------
+                             10 ; Public variables in this module
+                             11 ;--------------------------------------------------------
+                             12 	.globl _P5_7
+                             13 	.globl _P5_6
+                             14 	.globl _P5_5
+                             15 	.globl _P5_4
+                             16 	.globl _P5_3
+                             17 	.globl _P5_2
+                             18 	.globl _P5_1
+                             19 	.globl _P5_0
+                             20 	.globl _P4_7
+                             21 	.globl _P4_6
+                             22 	.globl _P4_5
+                             23 	.globl _P4_4
+                             24 	.globl _P4_3
+                             25 	.globl _P4_2
+                             26 	.globl _P4_1
+                             27 	.globl _P4_0
+                             28 	.globl _PX0L
+                             29 	.globl _PT0L
+                             30 	.globl _PX1L
+                             31 	.globl _PT1L
+                             32 	.globl _PLS
+                             33 	.globl _PT2L
+                             34 	.globl _PPCL
+                             35 	.globl _EC
+                             36 	.globl _CCF0
+                             37 	.globl _CCF1
+                             38 	.globl _CCF2
+                             39 	.globl _CCF3
+                             40 	.globl _CCF4
+                             41 	.globl _CR
+                             42 	.globl _CF
+                             43 	.globl _TF2
+                             44 	.globl _EXF2
+                             45 	.globl _RCLK
+                             46 	.globl _TCLK
+                             47 	.globl _EXEN2
+                             48 	.globl _TR2
+                             49 	.globl _C_T2
+                             50 	.globl _CP_RL2
+                             51 	.globl _T2CON_7
+                             52 	.globl _T2CON_6
+                             53 	.globl _T2CON_5
+                             54 	.globl _T2CON_4
+                             55 	.globl _T2CON_3
+                             56 	.globl _T2CON_2
+                             57 	.globl _T2CON_1
+                             58 	.globl _T2CON_0
+                             59 	.globl _PT2
+                             60 	.globl _ET2
+                             61 	.globl _CY
+                             62 	.globl _AC
+                             63 	.globl _F0
+                             64 	.globl _RS1
+                             65 	.globl _RS0
+                             66 	.globl _OV
+                             67 	.globl _F1
+                             68 	.globl _P
+                             69 	.globl _PS
+                             70 	.globl _PT1
+                             71 	.globl _PX1
+                             72 	.globl _PT0
+                             73 	.globl _PX0
+                             74 	.globl _RD
+                             75 	.globl _WR
+                             76 	.globl _T1
+                             77 	.globl _T0
+                             78 	.globl _INT1
+                             79 	.globl _INT0
+                             80 	.globl _TXD
+                             81 	.globl _RXD
+                             82 	.globl _P3_7
+                             83 	.globl _P3_6
+                             84 	.globl _P3_5
+                             85 	.globl _P3_4
+                             86 	.globl _P3_3
+                             87 	.globl _P3_2
+                             88 	.globl _P3_1
+                             89 	.globl _P3_0
+                             90 	.globl _EA
+                             91 	.globl _ES
+                             92 	.globl _ET1
+                             93 	.globl _EX1
+                             94 	.globl _ET0
+                             95 	.globl _EX0
+                             96 	.globl _P2_7
+                             97 	.globl _P2_6
+                             98 	.globl _P2_5
+                             99 	.globl _P2_4
+                            100 	.globl _P2_3
+                            101 	.globl _P2_2
+                            102 	.globl _P2_1
+                            103 	.globl _P2_0
+                            104 	.globl _SM0
+                            105 	.globl _SM1
+                            106 	.globl _SM2
+                            107 	.globl _REN
+                            108 	.globl _TB8
+                            109 	.globl _RB8
+                            110 	.globl _TI
+                            111 	.globl _RI
+                            112 	.globl _P1_7
+                            113 	.globl _P1_6
+                            114 	.globl _P1_5
+                            115 	.globl _P1_4
+                            116 	.globl _P1_3
+                            117 	.globl _P1_2
+                            118 	.globl _P1_1
+                            119 	.globl _P1_0
+                            120 	.globl _TF1
+                            121 	.globl _TR1
+                            122 	.globl _TF0
+                            123 	.globl _TR0
+                            124 	.globl _IE1
+                            125 	.globl _IT1
+                            126 	.globl _IE0
+                            127 	.globl _IT0
+                            128 	.globl _P0_7
+                            129 	.globl _P0_6
+                            130 	.globl _P0_5
+                            131 	.globl _P0_4
+                            132 	.globl _P0_3
+                            133 	.globl _P0_2
+                            134 	.globl _P0_1
+                            135 	.globl _P0_0
+                            136 	.globl _TXD0
+                            137 	.globl _RXD0
+                            138 	.globl _BREG_F7
+                            139 	.globl _BREG_F6
+                            140 	.globl _BREG_F5
+                            141 	.globl _BREG_F4
+                            142 	.globl _BREG_F3
+                            143 	.globl _BREG_F2
+                            144 	.globl _BREG_F1
+                            145 	.globl _BREG_F0
+                            146 	.globl _EECON
+                            147 	.globl _KBF
+                            148 	.globl _KBE
+                            149 	.globl _KBLS
+                            150 	.globl _BRL
+                            151 	.globl _BDRCON
+                            152 	.globl _T2MOD
+                            153 	.globl _SPDAT
+                            154 	.globl _SPSTA
+                            155 	.globl _SPCON
+                            156 	.globl _SADEN
+                            157 	.globl _SADDR
+                            158 	.globl _WDTPRG
+                            159 	.globl _WDTRST
+                            160 	.globl _P5
+                            161 	.globl _P4
+                            162 	.globl _IPH1
+                            163 	.globl _IPL1
+                            164 	.globl _IPH0
+                            165 	.globl _IPL0
+                            166 	.globl _IEN1
+                            167 	.globl _IEN0
+                            168 	.globl _CMOD
+                            169 	.globl _CL
+                            170 	.globl _CH
+                            171 	.globl _CCON
+                            172 	.globl _CCAPM4
+                            173 	.globl _CCAPM3
+                            174 	.globl _CCAPM2
+                            175 	.globl _CCAPM1
+                            176 	.globl _CCAPM0
+                            177 	.globl _CCAP4L
+                            178 	.globl _CCAP3L
+                            179 	.globl _CCAP2L
+                            180 	.globl _CCAP1L
+                            181 	.globl _CCAP0L
+                            182 	.globl _CCAP4H
+                            183 	.globl _CCAP3H
+                            184 	.globl _CCAP2H
+                            185 	.globl _CCAP1H
+                            186 	.globl _CCAP0H
+                            187 	.globl _CKCON1
+                            188 	.globl _CKCON0
+                            189 	.globl _CKRL
+                            190 	.globl _AUXR1
+                            191 	.globl _AUXR
+                            192 	.globl _TH2
+                            193 	.globl _TL2
+                            194 	.globl _RCAP2H
+                            195 	.globl _RCAP2L
+                            196 	.globl _T2CON
+                            197 	.globl _B
+                            198 	.globl _ACC
+                            199 	.globl _PSW
+                            200 	.globl _IP
+                            201 	.globl _P3
+                            202 	.globl _IE
+                            203 	.globl _P2
+                            204 	.globl _SBUF
+                            205 	.globl _SCON
+                            206 	.globl _P1
+                            207 	.globl _TH1
+                            208 	.globl _TH0
+                            209 	.globl _TL1
+                            210 	.globl _TL0
+                            211 	.globl _TMOD
+                            212 	.globl _TCON
+                            213 	.globl _PCON
+                            214 	.globl _DPH
+                            215 	.globl _DPL
+                            216 	.globl _SP
+                            217 	.globl _P0
+                            218 	.globl _SBUF0
+                            219 	.globl _DP0L
+                            220 	.globl _DP0H
+                            221 	.globl _ccode
+                            222 	.globl _getHexString_PARM_2
+                            223 	.globl _hex2int_PARM_2
+                            224 	.globl _lcd_data_read
+                            225 	.globl _lcd_data_wr
+                            226 	.globl _lcd_cmd_r
+                            227 	.globl _lcd_cmd_wr
+                            228 	.globl _hex2int
+                            229 	.globl _getHexString
+                            230 	.globl _convert_ascii_to_int
+                            231 	.globl _lcd_option2
+                            232 	.globl _lcd_option6
+                            233 	.globl _lcd_option7
+                            234 	.globl _lcd_option8
+                            235 	.globl _lcd_option9
+                            236 	.globl _lcd_user_interface
+                            237 	.globl _I2C_user_interface
+                            238 	.globl _clock_user_interface
+                            239 	.globl _user_interface
+                            240 ;--------------------------------------------------------
+                            241 ; special function registers
+                            242 ;--------------------------------------------------------
+                            243 	.area RSEG    (ABS,DATA)
+   0000                     244 	.org 0x0000
+                    0083    245 _DP0H	=	0x0083
+                    0082    246 _DP0L	=	0x0082
+                    0099    247 _SBUF0	=	0x0099
+                    0080    248 _P0	=	0x0080
+                    0081    249 _SP	=	0x0081
+                    0082    250 _DPL	=	0x0082
+                    0083    251 _DPH	=	0x0083
+                    0087    252 _PCON	=	0x0087
+                    0088    253 _TCON	=	0x0088
+                    0089    254 _TMOD	=	0x0089
+                    008A    255 _TL0	=	0x008a
+                    008B    256 _TL1	=	0x008b
+                    008C    257 _TH0	=	0x008c
+                    008D    258 _TH1	=	0x008d
+                    0090    259 _P1	=	0x0090
+                    0098    260 _SCON	=	0x0098
+                    0099    261 _SBUF	=	0x0099
+                    00A0    262 _P2	=	0x00a0
+                    00A8    263 _IE	=	0x00a8
+                    00B0    264 _P3	=	0x00b0
+                    00B8    265 _IP	=	0x00b8
+                    00D0    266 _PSW	=	0x00d0
+                    00E0    267 _ACC	=	0x00e0
+                    00F0    268 _B	=	0x00f0
+                    00C8    269 _T2CON	=	0x00c8
+                    00CA    270 _RCAP2L	=	0x00ca
+                    00CB    271 _RCAP2H	=	0x00cb
+                    00CC    272 _TL2	=	0x00cc
+                    00CD    273 _TH2	=	0x00cd
+                    008E    274 _AUXR	=	0x008e
+                    00A2    275 _AUXR1	=	0x00a2
+                    0097    276 _CKRL	=	0x0097
+                    008F    277 _CKCON0	=	0x008f
+                    00AF    278 _CKCON1	=	0x00af
+                    00FA    279 _CCAP0H	=	0x00fa
+                    00FB    280 _CCAP1H	=	0x00fb
+                    00FC    281 _CCAP2H	=	0x00fc
+                    00FD    282 _CCAP3H	=	0x00fd
+                    00FE    283 _CCAP4H	=	0x00fe
+                    00EA    284 _CCAP0L	=	0x00ea
+                    00EB    285 _CCAP1L	=	0x00eb
+                    00EC    286 _CCAP2L	=	0x00ec
+                    00ED    287 _CCAP3L	=	0x00ed
+                    00EE    288 _CCAP4L	=	0x00ee
+                    00DA    289 _CCAPM0	=	0x00da
+                    00DB    290 _CCAPM1	=	0x00db
+                    00DC    291 _CCAPM2	=	0x00dc
+                    00DD    292 _CCAPM3	=	0x00dd
+                    00DE    293 _CCAPM4	=	0x00de
+                    00D8    294 _CCON	=	0x00d8
+                    00F9    295 _CH	=	0x00f9
+                    00E9    296 _CL	=	0x00e9
+                    00D9    297 _CMOD	=	0x00d9
+                    00A8    298 _IEN0	=	0x00a8
+                    00B1    299 _IEN1	=	0x00b1
+                    00B8    300 _IPL0	=	0x00b8
+                    00B7    301 _IPH0	=	0x00b7
+                    00B2    302 _IPL1	=	0x00b2
+                    00B3    303 _IPH1	=	0x00b3
+                    00C0    304 _P4	=	0x00c0
+                    00E8    305 _P5	=	0x00e8
+                    00A6    306 _WDTRST	=	0x00a6
+                    00A7    307 _WDTPRG	=	0x00a7
+                    00A9    308 _SADDR	=	0x00a9
+                    00B9    309 _SADEN	=	0x00b9
+                    00C3    310 _SPCON	=	0x00c3
+                    00C4    311 _SPSTA	=	0x00c4
+                    00C5    312 _SPDAT	=	0x00c5
+                    00C9    313 _T2MOD	=	0x00c9
+                    009B    314 _BDRCON	=	0x009b
+                    009A    315 _BRL	=	0x009a
+                    009C    316 _KBLS	=	0x009c
+                    009D    317 _KBE	=	0x009d
+                    009E    318 _KBF	=	0x009e
+                    00D2    319 _EECON	=	0x00d2
+                            320 ;--------------------------------------------------------
+                            321 ; special function bits
+                            322 ;--------------------------------------------------------
+                            323 	.area RSEG    (ABS,DATA)
+   0000                     324 	.org 0x0000
+                    00F0    325 _BREG_F0	=	0x00f0
+                    00F1    326 _BREG_F1	=	0x00f1
+                    00F2    327 _BREG_F2	=	0x00f2
+                    00F3    328 _BREG_F3	=	0x00f3
+                    00F4    329 _BREG_F4	=	0x00f4
+                    00F5    330 _BREG_F5	=	0x00f5
+                    00F6    331 _BREG_F6	=	0x00f6
+                    00F7    332 _BREG_F7	=	0x00f7
+                    00B0    333 _RXD0	=	0x00b0
+                    00B1    334 _TXD0	=	0x00b1
+                    0080    335 _P0_0	=	0x0080
+                    0081    336 _P0_1	=	0x0081
+                    0082    337 _P0_2	=	0x0082
+                    0083    338 _P0_3	=	0x0083
+                    0084    339 _P0_4	=	0x0084
+                    0085    340 _P0_5	=	0x0085
+                    0086    341 _P0_6	=	0x0086
+                    0087    342 _P0_7	=	0x0087
+                    0088    343 _IT0	=	0x0088
+                    0089    344 _IE0	=	0x0089
+                    008A    345 _IT1	=	0x008a
+                    008B    346 _IE1	=	0x008b
+                    008C    347 _TR0	=	0x008c
+                    008D    348 _TF0	=	0x008d
+                    008E    349 _TR1	=	0x008e
+                    008F    350 _TF1	=	0x008f
+                    0090    351 _P1_0	=	0x0090
+                    0091    352 _P1_1	=	0x0091
+                    0092    353 _P1_2	=	0x0092
+                    0093    354 _P1_3	=	0x0093
+                    0094    355 _P1_4	=	0x0094
+                    0095    356 _P1_5	=	0x0095
+                    0096    357 _P1_6	=	0x0096
+                    0097    358 _P1_7	=	0x0097
+                    0098    359 _RI	=	0x0098
+                    0099    360 _TI	=	0x0099
+                    009A    361 _RB8	=	0x009a
+                    009B    362 _TB8	=	0x009b
+                    009C    363 _REN	=	0x009c
+                    009D    364 _SM2	=	0x009d
+                    009E    365 _SM1	=	0x009e
+                    009F    366 _SM0	=	0x009f
+                    00A0    367 _P2_0	=	0x00a0
+                    00A1    368 _P2_1	=	0x00a1
+                    00A2    369 _P2_2	=	0x00a2
+                    00A3    370 _P2_3	=	0x00a3
+                    00A4    371 _P2_4	=	0x00a4
+                    00A5    372 _P2_5	=	0x00a5
+                    00A6    373 _P2_6	=	0x00a6
+                    00A7    374 _P2_7	=	0x00a7
+                    00A8    375 _EX0	=	0x00a8
+                    00A9    376 _ET0	=	0x00a9
+                    00AA    377 _EX1	=	0x00aa
+                    00AB    378 _ET1	=	0x00ab
+                    00AC    379 _ES	=	0x00ac
+                    00AF    380 _EA	=	0x00af
+                    00B0    381 _P3_0	=	0x00b0
+                    00B1    382 _P3_1	=	0x00b1
+                    00B2    383 _P3_2	=	0x00b2
+                    00B3    384 _P3_3	=	0x00b3
+                    00B4    385 _P3_4	=	0x00b4
+                    00B5    386 _P3_5	=	0x00b5
+                    00B6    387 _P3_6	=	0x00b6
+                    00B7    388 _P3_7	=	0x00b7
+                    00B0    389 _RXD	=	0x00b0
+                    00B1    390 _TXD	=	0x00b1
+                    00B2    391 _INT0	=	0x00b2
+                    00B3    392 _INT1	=	0x00b3
+                    00B4    393 _T0	=	0x00b4
+                    00B5    394 _T1	=	0x00b5
+                    00B6    395 _WR	=	0x00b6
+                    00B7    396 _RD	=	0x00b7
+                    00B8    397 _PX0	=	0x00b8
+                    00B9    398 _PT0	=	0x00b9
+                    00BA    399 _PX1	=	0x00ba
+                    00BB    400 _PT1	=	0x00bb
+                    00BC    401 _PS	=	0x00bc
+                    00D0    402 _P	=	0x00d0
+                    00D1    403 _F1	=	0x00d1
+                    00D2    404 _OV	=	0x00d2
+                    00D3    405 _RS0	=	0x00d3
+                    00D4    406 _RS1	=	0x00d4
+                    00D5    407 _F0	=	0x00d5
+                    00D6    408 _AC	=	0x00d6
+                    00D7    409 _CY	=	0x00d7
+                    00AD    410 _ET2	=	0x00ad
+                    00BD    411 _PT2	=	0x00bd
+                    00C8    412 _T2CON_0	=	0x00c8
+                    00C9    413 _T2CON_1	=	0x00c9
+                    00CA    414 _T2CON_2	=	0x00ca
+                    00CB    415 _T2CON_3	=	0x00cb
+                    00CC    416 _T2CON_4	=	0x00cc
+                    00CD    417 _T2CON_5	=	0x00cd
+                    00CE    418 _T2CON_6	=	0x00ce
+                    00CF    419 _T2CON_7	=	0x00cf
+                    00C8    420 _CP_RL2	=	0x00c8
+                    00C9    421 _C_T2	=	0x00c9
+                    00CA    422 _TR2	=	0x00ca
+                    00CB    423 _EXEN2	=	0x00cb
+                    00CC    424 _TCLK	=	0x00cc
+                    00CD    425 _RCLK	=	0x00cd
+                    00CE    426 _EXF2	=	0x00ce
+                    00CF    427 _TF2	=	0x00cf
+                    00DF    428 _CF	=	0x00df
+                    00DE    429 _CR	=	0x00de
+                    00DC    430 _CCF4	=	0x00dc
+                    00DB    431 _CCF3	=	0x00db
+                    00DA    432 _CCF2	=	0x00da
+                    00D9    433 _CCF1	=	0x00d9
+                    00D8    434 _CCF0	=	0x00d8
+                    00AE    435 _EC	=	0x00ae
+                    00BE    436 _PPCL	=	0x00be
+                    00BD    437 _PT2L	=	0x00bd
+                    00BC    438 _PLS	=	0x00bc
+                    00BB    439 _PT1L	=	0x00bb
+                    00BA    440 _PX1L	=	0x00ba
+                    00B9    441 _PT0L	=	0x00b9
+                    00B8    442 _PX0L	=	0x00b8
+                    00C0    443 _P4_0	=	0x00c0
+                    00C1    444 _P4_1	=	0x00c1
+                    00C2    445 _P4_2	=	0x00c2
+                    00C3    446 _P4_3	=	0x00c3
+                    00C4    447 _P4_4	=	0x00c4
+                    00C5    448 _P4_5	=	0x00c5
+                    00C6    449 _P4_6	=	0x00c6
+                    00C7    450 _P4_7	=	0x00c7
+                    00E8    451 _P5_0	=	0x00e8
+                    00E9    452 _P5_1	=	0x00e9
+                    00EA    453 _P5_2	=	0x00ea
+                    00EB    454 _P5_3	=	0x00eb
+                    00EC    455 _P5_4	=	0x00ec
+                    00ED    456 _P5_5	=	0x00ed
+                    00EE    457 _P5_6	=	0x00ee
+                    00EF    458 _P5_7	=	0x00ef
+                            459 ;--------------------------------------------------------
+                            460 ; overlayable register banks
+                            461 ;--------------------------------------------------------
+                            462 	.area REG_BANK_0	(REL,OVR,DATA)
+   0000                     463 	.ds 8
+                            464 ;--------------------------------------------------------
+                            465 ; internal ram data
+                            466 ;--------------------------------------------------------
+                            467 	.area DSEG    (DATA)
+   0000                     468 _hex2int_sloc0_1_0:
+   0000                     469 	.ds 2
+                            470 ;--------------------------------------------------------
+                            471 ; overlayable items in internal ram 
+                            472 ;--------------------------------------------------------
+                            473 	.area OSEG    (OVR,DATA)
+                            474 ;--------------------------------------------------------
+                            475 ; indirectly addressable internal ram data
+                            476 ;--------------------------------------------------------
+                            477 	.area ISEG    (DATA)
+                            478 ;--------------------------------------------------------
+                            479 ; absolute internal ram data
+                            480 ;--------------------------------------------------------
+                            481 	.area IABS    (ABS,DATA)
+                            482 	.area IABS    (ABS,DATA)
+                            483 ;--------------------------------------------------------
+                            484 ; bit data
+                            485 ;--------------------------------------------------------
+                            486 	.area BSEG    (BIT)
+                            487 ;--------------------------------------------------------
+                            488 ; paged external ram data
+                            489 ;--------------------------------------------------------
+                            490 	.area PSEG    (PAG,XDATA)
+                            491 ;--------------------------------------------------------
+                            492 ; external ram data
+                            493 ;--------------------------------------------------------
+                            494 	.area XSEG    (XDATA)
+                    E000    495 _lcd_cmd_wr	=	0xe000
+                    E200    496 _lcd_cmd_r	=	0xe200
+                    E100    497 _lcd_data_wr	=	0xe100
+                    E300    498 _lcd_data_read	=	0xe300
+   0000                     499 _hex2int_PARM_2:
+   0000                     500 	.ds 1
+   0001                     501 _hex2int_a_1_1:
+   0001                     502 	.ds 3
+   0004                     503 _hex2int_val_1_1:
+   0004                     504 	.ds 2
+   0006                     505 _getHexString_PARM_2:
+   0006                     506 	.ds 1
+   0007                     507 _getHexString_hexString_1_1:
+   0007                     508 	.ds 3
+   000A                     509 _getHexString_hexchar_1_1:
+   000A                     510 	.ds 1
+   000B                     511 _convert_ascii_to_int_row_vals_Int_1_1:
+   000B                     512 	.ds 2
+   000D                     513 _convert_ascii_to_int_row_vals_1_1:
+   000D                     514 	.ds 1
+   000E                     515 _lcd_option2_row_vals_1_1:
+   000E                     516 	.ds 8
+   0016                     517 _lcd_option2_hexStringrowvals_1_1:
+   0016                     518 	.ds 2
+   0018                     519 _lcd_option6_x_1_1:
+   0018                     520 	.ds 1
+   0019                     521 _lcd_option6_y_1_1:
+   0019                     522 	.ds 1
+   001A                     523 _lcd_option8_a_1_1:
+   001A                     524 	.ds 1
+   001B                     525 _I2C_user_interface_i_2_2:
+   001B                     526 	.ds 2
+   001D                     527 _I2C_user_interface_hexStringAdd_2_2:
+   001D                     528 	.ds 4
+   0021                     529 _I2C_user_interface_hexStringData_2_2:
+   0021                     530 	.ds 2
+                            531 ;--------------------------------------------------------
+                            532 ; absolute external ram data
+                            533 ;--------------------------------------------------------
+                            534 	.area XABS    (ABS,XDATA)
+                            535 ;--------------------------------------------------------
+                            536 ; external initialized ram data
+                            537 ;--------------------------------------------------------
+                            538 	.area XISEG   (XDATA)
+   0000                     539 _ccode::
+   0000                     540 	.ds 1
+                            541 	.area HOME    (CODE)
+                            542 	.area GSINIT0 (CODE)
+                            543 	.area GSINIT1 (CODE)
+                            544 	.area GSINIT2 (CODE)
+                            545 	.area GSINIT3 (CODE)
+                            546 	.area GSINIT4 (CODE)
+                            547 	.area GSINIT5 (CODE)
+                            548 	.area GSINIT  (CODE)
+                            549 	.area GSFINAL (CODE)
+                            550 	.area CSEG    (CODE)
+                            551 ;--------------------------------------------------------
+                            552 ; global & static initialisations
+                            553 ;--------------------------------------------------------
+                            554 	.area HOME    (CODE)
+                            555 	.area GSINIT  (CODE)
+                            556 	.area GSFINAL (CODE)
+                            557 	.area GSINIT  (CODE)
+                            558 ;--------------------------------------------------------
+                            559 ; Home
+                            560 ;--------------------------------------------------------
+                            561 	.area HOME    (CODE)
+                            562 	.area HOME    (CODE)
+                            563 ;--------------------------------------------------------
+                            564 ; code
+                            565 ;--------------------------------------------------------
+                            566 	.area CSEG    (CODE)
+                            567 ;------------------------------------------------------------
+                            568 ;Allocation info for local variables in function 'hex2int'
+                            569 ;------------------------------------------------------------
+                            570 ;sloc0                     Allocated with name '_hex2int_sloc0_1_0'
+                            571 ;len                       Allocated with name '_hex2int_PARM_2'
+                            572 ;a                         Allocated with name '_hex2int_a_1_1'
+                            573 ;i                         Allocated with name '_hex2int_i_1_1'
+                            574 ;val                       Allocated with name '_hex2int_val_1_1'
+                            575 ;------------------------------------------------------------
+                            576 ;	user_interface.c:14: unsigned int hex2int(unsigned char *a, unsigned char len)           // function to convert hex to integer
+                            577 ;	-----------------------------------------
+                            578 ;	 function hex2int
+                            579 ;	-----------------------------------------
+   0000                     580 _hex2int:
+                    0002    581 	ar2 = 0x02
+                    0003    582 	ar3 = 0x03
+                    0004    583 	ar4 = 0x04
+                    0005    584 	ar5 = 0x05
+                    0006    585 	ar6 = 0x06
+                    0007    586 	ar7 = 0x07
+                    0000    587 	ar0 = 0x00
+                    0001    588 	ar1 = 0x01
+   0000 AA F0               589 	mov	r2,b
+   0002 AB 83               590 	mov	r3,dph
+   0004 E5 82               591 	mov	a,dpl
+   0006 90s00r01            592 	mov	dptr,#_hex2int_a_1_1
+   0009 F0                  593 	movx	@dptr,a
+   000A A3                  594 	inc	dptr
+   000B EB                  595 	mov	a,r3
+   000C F0                  596 	movx	@dptr,a
+   000D A3                  597 	inc	dptr
+   000E EA                  598 	mov	a,r2
+   000F F0                  599 	movx	@dptr,a
+                            600 ;	user_interface.c:17: unsigned int val = 0;
+   0010 90s00r04            601 	mov	dptr,#_hex2int_val_1_1
+   0013 E4                  602 	clr	a
+   0014 F0                  603 	movx	@dptr,a
+   0015 A3                  604 	inc	dptr
+   0016 F0                  605 	movx	@dptr,a
+                            606 ;	user_interface.c:19: for(i=0;i<len;i++)
+   0017 90s00r01            607 	mov	dptr,#_hex2int_a_1_1
+   001A E0                  608 	movx	a,@dptr
+   001B FA                  609 	mov	r2,a
+   001C A3                  610 	inc	dptr
+   001D E0                  611 	movx	a,@dptr
+   001E FB                  612 	mov	r3,a
+   001F A3                  613 	inc	dptr
+   0020 E0                  614 	movx	a,@dptr
+   0021 FC                  615 	mov	r4,a
+   0022 90s00r00            616 	mov	dptr,#_hex2int_PARM_2
+   0025 E0                  617 	movx	a,@dptr
+   0026 FD                  618 	mov	r5,a
+   0027 7E 00               619 	mov	r6,#0x00
+   0029                     620 00104$:
+   0029 EE                  621 	mov	a,r6
+   002A B5 05 00            622 	cjne	a,ar5,00114$
+   002D                     623 00114$:
+   002D 40 03               624 	jc	00115$
+   002F 02s01r4C            625 	ljmp	00107$
+   0032                     626 00115$:
+                            627 ;	user_interface.c:21: if(a[i] <= 57)
+   0032 EE                  628 	mov	a,r6
+   0033 2A                  629 	add	a,r2
+   0034 FF                  630 	mov	r7,a
+   0035 E4                  631 	clr	a
+   0036 3B                  632 	addc	a,r3
+   0037 F8                  633 	mov	r0,a
+   0038 8C 01               634 	mov	ar1,r4
+   003A 8F 82               635 	mov	dpl,r7
+   003C 88 83               636 	mov	dph,r0
+   003E 89 F0               637 	mov	b,r1
+   0040 12s00r00            638 	lcall	__gptrget
+   0043 FF                  639 	mov	r7,a
+   0044 74 39               640 	mov	a,#0x39
+   0046 B5 07 00            641 	cjne	a,ar7,00116$
+   0049                     642 00116$:
+   0049 50 03               643 	jnc	00117$
+   004B 02s00rD1            644 	ljmp	00102$
+   004E                     645 00117$:
+                            646 ;	user_interface.c:22: val += (a[i]-48)*(1<<(4*(len-1-i)));
+   004E C0 02               647 	push	ar2
+   0050 C0 03               648 	push	ar3
+   0052 C0 04               649 	push	ar4
+   0054 8F 00               650 	mov	ar0,r7
+   0056 79 00               651 	mov	r1,#0x00
+   0058 E8                  652 	mov	a,r0
+   0059 24 D0               653 	add	a,#0xd0
+   005B F8                  654 	mov	r0,a
+   005C E9                  655 	mov	a,r1
+   005D 34 FF               656 	addc	a,#0xff
+   005F F9                  657 	mov	r1,a
+   0060 8D 02               658 	mov	ar2,r5
+   0062 7B 00               659 	mov	r3,#0x00
+   0064 EA                  660 	mov	a,r2
+   0065 24 FF               661 	add	a,#0xff
+   0067 F5*00               662 	mov	_hex2int_sloc0_1_0,a
+   0069 EB                  663 	mov	a,r3
+   006A 34 FF               664 	addc	a,#0xff
+   006C F5*01               665 	mov	(_hex2int_sloc0_1_0 + 1),a
+   006E 8E 04               666 	mov	ar4,r6
+   0070 7A 00               667 	mov	r2,#0x00
+   0072 E5*00               668 	mov	a,_hex2int_sloc0_1_0
+   0074 C3                  669 	clr	c
+   0075 9C                  670 	subb	a,r4
+   0076 FC                  671 	mov	r4,a
+   0077 E5*01               672 	mov	a,(_hex2int_sloc0_1_0 + 1)
+   0079 9A                  673 	subb	a,r2
+   007A CC                  674 	xch	a,r4
+   007B 25 E0               675 	add	a,acc
+   007D CC                  676 	xch	a,r4
+   007E 33                  677 	rlc	a
+   007F CC                  678 	xch	a,r4
+   0080 25 E0               679 	add	a,acc
+   0082 CC                  680 	xch	a,r4
+   0083 33                  681 	rlc	a
+   0084 8C F0               682 	mov	b,r4
+   0086 05 F0               683 	inc	b
+   0088 7C 01               684 	mov	r4,#0x01
+   008A 7A 00               685 	mov	r2,#0x00
+   008C 80 06               686 	sjmp	00119$
+   008E                     687 00118$:
+   008E EC                  688 	mov	a,r4
+   008F 2C                  689 	add	a,r4
+   0090 FC                  690 	mov	r4,a
+   0091 EA                  691 	mov	a,r2
+   0092 33                  692 	rlc	a
+   0093 FA                  693 	mov	r2,a
+   0094                     694 00119$:
+   0094 D5 F0 F7            695 	djnz	b,00118$
+   0097 90s00r00            696 	mov	dptr,#__mulint_PARM_2
+   009A EC                  697 	mov	a,r4
+   009B F0                  698 	movx	@dptr,a
+   009C A3                  699 	inc	dptr
+   009D EA                  700 	mov	a,r2
+   009E F0                  701 	movx	@dptr,a
+   009F 88 82               702 	mov	dpl,r0
+   00A1 89 83               703 	mov	dph,r1
+   00A3 C0 04               704 	push	ar4
+   00A5 C0 05               705 	push	ar5
+   00A7 C0 06               706 	push	ar6
+   00A9 12s00r00            707 	lcall	__mulint
+   00AC AA 82               708 	mov	r2,dpl
+   00AE AB 83               709 	mov	r3,dph
+   00B0 D0 06               710 	pop	ar6
+   00B2 D0 05               711 	pop	ar5
+   00B4 D0 04               712 	pop	ar4
+   00B6 90s00r04            713 	mov	dptr,#_hex2int_val_1_1
+   00B9 E0                  714 	movx	a,@dptr
+   00BA FC                  715 	mov	r4,a
+   00BB A3                  716 	inc	dptr
+   00BC E0                  717 	movx	a,@dptr
+   00BD F8                  718 	mov	r0,a
+   00BE 90s00r04            719 	mov	dptr,#_hex2int_val_1_1
+   00C1 EA                  720 	mov	a,r2
+   00C2 2C                  721 	add	a,r4
+   00C3 F0                  722 	movx	@dptr,a
+   00C4 EB                  723 	mov	a,r3
+   00C5 38                  724 	addc	a,r0
+   00C6 A3                  725 	inc	dptr
+   00C7 F0                  726 	movx	@dptr,a
+   00C8 D0 04               727 	pop	ar4
+   00CA D0 03               728 	pop	ar3
+   00CC D0 02               729 	pop	ar2
+   00CE 02s01r48            730 	ljmp	00106$
+   00D1                     731 00102$:
+                            732 ;	user_interface.c:24: val += (a[i]-55)*(1<<(4*(len-1-i)));
+   00D1 C0 02               733 	push	ar2
+   00D3 C0 03               734 	push	ar3
+   00D5 C0 04               735 	push	ar4
+   00D7 78 00               736 	mov	r0,#0x00
+   00D9 EF                  737 	mov	a,r7
+   00DA 24 C9               738 	add	a,#0xc9
+   00DC FF                  739 	mov	r7,a
+   00DD E8                  740 	mov	a,r0
+   00DE 34 FF               741 	addc	a,#0xff
+   00E0 F8                  742 	mov	r0,a
+   00E1 8D 01               743 	mov	ar1,r5
+   00E3 7A 00               744 	mov	r2,#0x00
+   00E5 19                  745 	dec	r1
+   00E6 B9 FF 01            746 	cjne	r1,#0xff,00120$
+   00E9 1A                  747 	dec	r2
+   00EA                     748 00120$:
+   00EA 8E 03               749 	mov	ar3,r6
+   00EC 7C 00               750 	mov	r4,#0x00
+   00EE E9                  751 	mov	a,r1
+   00EF C3                  752 	clr	c
+   00F0 9B                  753 	subb	a,r3
+   00F1 F9                  754 	mov	r1,a
+   00F2 EA                  755 	mov	a,r2
+   00F3 9C                  756 	subb	a,r4
+   00F4 C9                  757 	xch	a,r1
+   00F5 25 E0               758 	add	a,acc
+   00F7 C9                  759 	xch	a,r1
+   00F8 33                  760 	rlc	a
+   00F9 C9                  761 	xch	a,r1
+   00FA 25 E0               762 	add	a,acc
+   00FC C9                  763 	xch	a,r1
+   00FD 33                  764 	rlc	a
+   00FE 89 F0               765 	mov	b,r1
+   0100 05 F0               766 	inc	b
+   0102 79 01               767 	mov	r1,#0x01
+   0104 7A 00               768 	mov	r2,#0x00
+   0106 80 06               769 	sjmp	00122$
+   0108                     770 00121$:
+   0108 E9                  771 	mov	a,r1
+   0109 29                  772 	add	a,r1
+   010A F9                  773 	mov	r1,a
+   010B EA                  774 	mov	a,r2
+   010C 33                  775 	rlc	a
+   010D FA                  776 	mov	r2,a
+   010E                     777 00122$:
+   010E D5 F0 F7            778 	djnz	b,00121$
+   0111 90s00r00            779 	mov	dptr,#__mulint_PARM_2
+   0114 E9                  780 	mov	a,r1
+   0115 F0                  781 	movx	@dptr,a
+   0116 A3                  782 	inc	dptr
+   0117 EA                  783 	mov	a,r2
+   0118 F0                  784 	movx	@dptr,a
+   0119 8F 82               785 	mov	dpl,r7
+   011B 88 83               786 	mov	dph,r0
+   011D C0 04               787 	push	ar4
+   011F C0 05               788 	push	ar5
+   0121 C0 06               789 	push	ar6
+   0123 12s00r00            790 	lcall	__mulint
+   0126 AA 82               791 	mov	r2,dpl
+   0128 AB 83               792 	mov	r3,dph
+   012A D0 06               793 	pop	ar6
+   012C D0 05               794 	pop	ar5
+   012E D0 04               795 	pop	ar4
+   0130 90s00r04            796 	mov	dptr,#_hex2int_val_1_1
+   0133 E0                  797 	movx	a,@dptr
+   0134 FC                  798 	mov	r4,a
+   0135 A3                  799 	inc	dptr
+   0136 E0                  800 	movx	a,@dptr
+   0137 FF                  801 	mov	r7,a
+   0138 90s00r04            802 	mov	dptr,#_hex2int_val_1_1
+   013B EA                  803 	mov	a,r2
+   013C 2C                  804 	add	a,r4
+   013D F0                  805 	movx	@dptr,a
+   013E EB                  806 	mov	a,r3
+   013F 3F                  807 	addc	a,r7
+   0140 A3                  808 	inc	dptr
+   0141 F0                  809 	movx	@dptr,a
+                            810 ;	user_interface.c:26: return val;
+   0142 D0 04               811 	pop	ar4
+   0144 D0 03               812 	pop	ar3
+   0146 D0 02               813 	pop	ar2
+                            814 ;	user_interface.c:24: val += (a[i]-55)*(1<<(4*(len-1-i)));
+   0148                     815 00106$:
+                            816 ;	user_interface.c:19: for(i=0;i<len;i++)
+   0148 0E                  817 	inc	r6
+   0149 02s00r29            818 	ljmp	00104$
+   014C                     819 00107$:
+                            820 ;	user_interface.c:26: return val;
+   014C 90s00r04            821 	mov	dptr,#_hex2int_val_1_1
+   014F E0                  822 	movx	a,@dptr
+   0150 FA                  823 	mov	r2,a
+   0151 A3                  824 	inc	dptr
+   0152 E0                  825 	movx	a,@dptr
+   0153 8A 82               826 	mov	dpl,r2
+   0155 F5 83               827 	mov	dph,a
+   0157 22                  828 	ret
+                            829 ;------------------------------------------------------------
+                            830 ;Allocation info for local variables in function 'getHexString'
+                            831 ;------------------------------------------------------------
+                            832 ;length                    Allocated with name '_getHexString_PARM_2'
+                            833 ;hexString                 Allocated with name '_getHexString_hexString_1_1'
+                            834 ;len                       Allocated with name '_getHexString_len_1_1'
+                            835 ;hexchar                   Allocated with name '_getHexString_hexchar_1_1'
+                            836 ;------------------------------------------------------------
+                            837 ;	user_interface.c:28: unsigned char* getHexString(unsigned char *hexString, unsigned char length)
+                            838 ;	-----------------------------------------
+                            839 ;	 function getHexString
+                            840 ;	-----------------------------------------
+   0158                     841 _getHexString:
+   0158 AA F0               842 	mov	r2,b
+   015A AB 83               843 	mov	r3,dph
+   015C E5 82               844 	mov	a,dpl
+   015E 90s00r07            845 	mov	dptr,#_getHexString_hexString_1_1
+   0161 F0                  846 	movx	@dptr,a
+   0162 A3                  847 	inc	dptr
+   0163 EB                  848 	mov	a,r3
+   0164 F0                  849 	movx	@dptr,a
+   0165 A3                  850 	inc	dptr
+   0166 EA                  851 	mov	a,r2
+   0167 F0                  852 	movx	@dptr,a
+                            853 ;	user_interface.c:31: while(len < length)
+   0168 90s00r07            854 	mov	dptr,#_getHexString_hexString_1_1
+   016B E0                  855 	movx	a,@dptr
+   016C FA                  856 	mov	r2,a
+   016D A3                  857 	inc	dptr
+   016E E0                  858 	movx	a,@dptr
+   016F FB                  859 	mov	r3,a
+   0170 A3                  860 	inc	dptr
+   0171 E0                  861 	movx	a,@dptr
+   0172 FC                  862 	mov	r4,a
+   0173 90s00r06            863 	mov	dptr,#_getHexString_PARM_2
+   0176 E0                  864 	movx	a,@dptr
+   0177 FD                  865 	mov	r5,a
+   0178 7E 00               866 	mov	r6,#0x00
+   017A                     867 00101$:
+   017A EE                  868 	mov	a,r6
+   017B B5 05 00            869 	cjne	a,ar5,00123$
+   017E                     870 00123$:
+   017E 50 15               871 	jnc	00103$
+                            872 ;	user_interface.c:33: hexString[len] = 0;
+   0180 EE                  873 	mov	a,r6
+   0181 2A                  874 	add	a,r2
+   0182 FF                  875 	mov	r7,a
+   0183 E4                  876 	clr	a
+   0184 3B                  877 	addc	a,r3
+   0185 F8                  878 	mov	r0,a
+   0186 8C 01               879 	mov	ar1,r4
+   0188 8F 82               880 	mov	dpl,r7
+   018A 88 83               881 	mov	dph,r0
+   018C 89 F0               882 	mov	b,r1
+   018E E4                  883 	clr	a
+   018F 12s00r00            884 	lcall	__gptrput
+                            885 ;	user_interface.c:34: len++;
+   0192 0E                  886 	inc	r6
+   0193 80 E5               887 	sjmp	00101$
+   0195                     888 00103$:
+                            889 ;	user_interface.c:38: while(len < length)
+   0195 90s00r07            890 	mov	dptr,#_getHexString_hexString_1_1
+   0198 E0                  891 	movx	a,@dptr
+   0199 FA                  892 	mov	r2,a
+   019A A3                  893 	inc	dptr
+   019B E0                  894 	movx	a,@dptr
+   019C FB                  895 	mov	r3,a
+   019D A3                  896 	inc	dptr
+   019E E0                  897 	movx	a,@dptr
+   019F FC                  898 	mov	r4,a
+   01A0 7E 00               899 	mov	r6,#0x00
+   01A2                     900 00109$:
+   01A2 EE                  901 	mov	a,r6
+   01A3 B5 05 00            902 	cjne	a,ar5,00125$
+   01A6                     903 00125$:
+   01A6 50 5D               904 	jnc	00111$
+                            905 ;	user_interface.c:40: hexchar = getchar();
+   01A8 C0 02               906 	push	ar2
+   01AA C0 03               907 	push	ar3
+   01AC C0 04               908 	push	ar4
+   01AE C0 05               909 	push	ar5
+   01B0 C0 06               910 	push	ar6
+   01B2 12s00r00            911 	lcall	_getchar
+   01B5 AF 82               912 	mov	r7,dpl
+   01B7 D0 06               913 	pop	ar6
+   01B9 D0 05               914 	pop	ar5
+   01BB D0 04               915 	pop	ar4
+   01BD D0 03               916 	pop	ar3
+   01BF D0 02               917 	pop	ar2
+   01C1 90s00r0A            918 	mov	dptr,#_getHexString_hexchar_1_1
+   01C4 EF                  919 	mov	a,r7
+   01C5 F0                  920 	movx	@dptr,a
+                            921 ;	user_interface.c:41: if(hexchar == '\r')
+   01C6 8F 00               922 	mov	ar0,r7
+   01C8 79 00               923 	mov	r1,#0x00
+   01CA B8 0D 05            924 	cjne	r0,#0x0D,00127$
+   01CD B9 00 02            925 	cjne	r1,#0x00,00127$
+   01D0 80 33               926 	sjmp	00111$
+   01D2                     927 00127$:
+                            928 ;	user_interface.c:43: if(hexchar > 96 && hexchar < 123)
+   01D2 8F 00               929 	mov	ar0,r7
+   01D4 74 60               930 	mov	a,#0x60
+   01D6 B5 00 00            931 	cjne	a,ar0,00128$
+   01D9                     932 00128$:
+   01D9 50 0E               933 	jnc	00107$
+   01DB 8F 00               934 	mov	ar0,r7
+   01DD B8 7B 00            935 	cjne	r0,#0x7B,00130$
+   01E0                     936 00130$:
+   01E0 50 07               937 	jnc	00107$
+                            938 ;	user_interface.c:44: hexchar = hexchar - 32;
+   01E2 EF                  939 	mov	a,r7
+   01E3 24 E0               940 	add	a,#0xe0
+   01E5 90s00r0A            941 	mov	dptr,#_getHexString_hexchar_1_1
+   01E8 F0                  942 	movx	@dptr,a
+   01E9                     943 00107$:
+                            944 ;	user_interface.c:45: hexString[len] = hexchar;
+   01E9 C0 05               945 	push	ar5
+   01EB EE                  946 	mov	a,r6
+   01EC 2A                  947 	add	a,r2
+   01ED FF                  948 	mov	r7,a
+   01EE E4                  949 	clr	a
+   01EF 3B                  950 	addc	a,r3
+   01F0 F8                  951 	mov	r0,a
+   01F1 8C 01               952 	mov	ar1,r4
+   01F3 90s00r0A            953 	mov	dptr,#_getHexString_hexchar_1_1
+   01F6 E0                  954 	movx	a,@dptr
+   01F7 8F 82               955 	mov	dpl,r7
+   01F9 88 83               956 	mov	dph,r0
+   01FB 89 F0               957 	mov	b,r1
+   01FD 12s00r00            958 	lcall	__gptrput
+                            959 ;	user_interface.c:46: len++;
+   0200 0E                  960 	inc	r6
+   0201 D0 05               961 	pop	ar5
+   0203 80 9D               962 	sjmp	00109$
+   0205                     963 00111$:
+                            964 ;	user_interface.c:48: return hexString;
+   0205 90s00r07            965 	mov	dptr,#_getHexString_hexString_1_1
+   0208 E0                  966 	movx	a,@dptr
+   0209 FA                  967 	mov	r2,a
+   020A A3                  968 	inc	dptr
+   020B E0                  969 	movx	a,@dptr
+   020C FB                  970 	mov	r3,a
+   020D A3                  971 	inc	dptr
+   020E E0                  972 	movx	a,@dptr
+   020F FC                  973 	mov	r4,a
+   0210 8A 82               974 	mov	dpl,r2
+   0212 8B 83               975 	mov	dph,r3
+   0214 8C F0               976 	mov	b,r4
+   0216 22                  977 	ret
+                            978 ;------------------------------------------------------------
+                            979 ;Allocation info for local variables in function 'convert_ascii_to_int'
+                            980 ;------------------------------------------------------------
+                            981 ;row_vals_Int              Allocated with name '_convert_ascii_to_int_row_vals_Int_1_1'
+                            982 ;row_vals                  Allocated with name '_convert_ascii_to_int_row_vals_1_1'
+                            983 ;------------------------------------------------------------
+                            984 ;	user_interface.c:51: int convert_ascii_to_int()
+                            985 ;	-----------------------------------------
+                            986 ;	 function convert_ascii_to_int
+                            987 ;	-----------------------------------------
+   0217                     988 _convert_ascii_to_int:
+                            989 ;	user_interface.c:53: int row_vals_Int = 0;
+   0217 90s00r0B            990 	mov	dptr,#_convert_ascii_to_int_row_vals_Int_1_1
+   021A E4                  991 	clr	a
+   021B F0                  992 	movx	@dptr,a
+   021C A3                  993 	inc	dptr
+   021D F0                  994 	movx	@dptr,a
+                            995 ;	user_interface.c:54: unsigned char row_vals = '0';
+   021E 90s00r0D            996 	mov	dptr,#_convert_ascii_to_int_row_vals_1_1
+   0221 74 30               997 	mov	a,#0x30
+   0223 F0                  998 	movx	@dptr,a
+                            999 ;	user_interface.c:55: do
+   0224                    1000 00103$:
+                           1001 ;	user_interface.c:57: row_vals_Int = (row_vals_Int*10) + (row_vals - 48);
+   0224 90s00r0B           1002 	mov	dptr,#_convert_ascii_to_int_row_vals_Int_1_1
+   0227 E0                 1003 	movx	a,@dptr
+   0228 FA                 1004 	mov	r2,a
+   0229 A3                 1005 	inc	dptr
+   022A E0                 1006 	movx	a,@dptr
+   022B FB                 1007 	mov	r3,a
+   022C 90s00r00           1008 	mov	dptr,#__mulint_PARM_2
+   022F EA                 1009 	mov	a,r2
+   0230 F0                 1010 	movx	@dptr,a
+   0231 A3                 1011 	inc	dptr
+   0232 EB                 1012 	mov	a,r3
+   0233 F0                 1013 	movx	@dptr,a
+   0234 90 00 0A           1014 	mov	dptr,#0x000A
+   0237 12s00r00           1015 	lcall	__mulint
+   023A AA 82              1016 	mov	r2,dpl
+   023C AB 83              1017 	mov	r3,dph
+   023E 90s00r0D           1018 	mov	dptr,#_convert_ascii_to_int_row_vals_1_1
+   0241 E0                 1019 	movx	a,@dptr
+   0242 7D 00              1020 	mov	r5,#0x00
+   0244 24 D0              1021 	add	a,#0xd0
+   0246 FC                 1022 	mov	r4,a
+   0247 ED                 1023 	mov	a,r5
+   0248 34 FF              1024 	addc	a,#0xff
+   024A FD                 1025 	mov	r5,a
+   024B 90s00r0B           1026 	mov	dptr,#_convert_ascii_to_int_row_vals_Int_1_1
+   024E EC                 1027 	mov	a,r4
+   024F 2A                 1028 	add	a,r2
+   0250 F0                 1029 	movx	@dptr,a
+   0251 ED                 1030 	mov	a,r5
+   0252 3B                 1031 	addc	a,r3
+   0253 A3                 1032 	inc	dptr
+   0254 F0                 1033 	movx	@dptr,a
+                           1034 ;	user_interface.c:58: row_vals = getchar();
+   0255 12s00r00           1035 	lcall	_getchar
+   0258 AA 82              1036 	mov	r2,dpl
+   025A 90s00r0D           1037 	mov	dptr,#_convert_ascii_to_int_row_vals_1_1
+   025D EA                 1038 	mov	a,r2
+   025E F0                 1039 	movx	@dptr,a
+                           1040 ;	user_interface.c:60: }while(row_vals != '\r' && ((row_vals > 47) && (row_vals < 58))); // 0-> 48 and 9 -> 57 in ascii
+   025F 8A 03              1041 	mov	ar3,r2
+   0261 7C 00              1042 	mov	r4,#0x00
+   0263 BB 0D 05           1043 	cjne	r3,#0x0D,00117$
+   0266 BC 00 02           1044 	cjne	r4,#0x00,00117$
+   0269 80 10              1045 	sjmp	00105$
+   026B                    1046 00117$:
+   026B 8A 03              1047 	mov	ar3,r2
+   026D 74 2F              1048 	mov	a,#0x2F
+   026F B5 03 00           1049 	cjne	a,ar3,00118$
+   0272                    1050 00118$:
+   0272 50 07              1051 	jnc	00105$
+   0274 8A 03              1052 	mov	ar3,r2
+   0276 BB 3A 00           1053 	cjne	r3,#0x3A,00120$
+   0279                    1054 00120$:
+   0279 40 A9              1055 	jc	00103$
+   027B                    1056 00105$:
+                           1057 ;	user_interface.c:62: if((row_vals != '\r') && ((row_vals < 48) || (row_vals > 57)))
+   027B 8A 03              1058 	mov	ar3,r2
+   027D 7C 00              1059 	mov	r4,#0x00
+   027F BB 0D 05           1060 	cjne	r3,#0x0D,00122$
+   0282 BC 00 02           1061 	cjne	r4,#0x00,00122$
+   0285 80 24              1062 	sjmp	00107$
+   0287                    1063 00122$:
+   0287 8A 03              1064 	mov	ar3,r2
+   0289 BB 30 00           1065 	cjne	r3,#0x30,00123$
+   028C                    1066 00123$:
+   028C 40 07              1067 	jc	00106$
+   028E 74 39              1068 	mov	a,#0x39
+   0290 B5 02 00           1069 	cjne	a,ar2,00125$
+   0293                    1070 00125$:
+   0293 50 16              1071 	jnc	00107$
+   0295                    1072 00106$:
+                           1073 ;	user_interface.c:64: printf_tiny("\r\nEnter  a valid number.");
+   0295 74r00              1074 	mov	a,#__str_0
+   0297 C0 E0              1075 	push	acc
+   0299 74s00              1076 	mov	a,#(__str_0 >> 8)
+   029B C0 E0              1077 	push	acc
+   029D 12s00r00           1078 	lcall	_printf_tiny
+   02A0 15 81              1079 	dec	sp
+   02A2 15 81              1080 	dec	sp
+                           1081 ;	user_interface.c:66: row_vals_Int = 0;
+   02A4 90s00r0B           1082 	mov	dptr,#_convert_ascii_to_int_row_vals_Int_1_1
+   02A7 E4                 1083 	clr	a
+   02A8 F0                 1084 	movx	@dptr,a
+   02A9 A3                 1085 	inc	dptr
+   02AA F0                 1086 	movx	@dptr,a
+   02AB                    1087 00107$:
+                           1088 ;	user_interface.c:68: printf("\r\n");
+   02AB 74r19              1089 	mov	a,#__str_1
+   02AD C0 E0              1090 	push	acc
+   02AF 74s00              1091 	mov	a,#(__str_1 >> 8)
+   02B1 C0 E0              1092 	push	acc
+   02B3 74 80              1093 	mov	a,#0x80
+   02B5 C0 E0              1094 	push	acc
+   02B7 12s00r00           1095 	lcall	_printf
+   02BA 15 81              1096 	dec	sp
+   02BC 15 81              1097 	dec	sp
+   02BE 15 81              1098 	dec	sp
+                           1099 ;	user_interface.c:69: return row_vals_Int;
+   02C0 90s00r0B           1100 	mov	dptr,#_convert_ascii_to_int_row_vals_Int_1_1
+   02C3 E0                 1101 	movx	a,@dptr
+   02C4 FA                 1102 	mov	r2,a
+   02C5 A3                 1103 	inc	dptr
+   02C6 E0                 1104 	movx	a,@dptr
+   02C7 8A 82              1105 	mov	dpl,r2
+   02C9 F5 83              1106 	mov	dph,a
+   02CB 22                 1107 	ret
+                           1108 ;------------------------------------------------------------
+                           1109 ;Allocation info for local variables in function 'lcd_option2'
+                           1110 ;------------------------------------------------------------
+                           1111 ;row_vals                  Allocated with name '_lcd_option2_row_vals_1_1'
+                           1112 ;i                         Allocated with name '_lcd_option2_i_1_1'
+                           1113 ;hexStringrowvals          Allocated with name '_lcd_option2_hexStringrowvals_1_1'
+                           1114 ;------------------------------------------------------------
+                           1115 ;	user_interface.c:71: void lcd_option2()
+                           1116 ;	-----------------------------------------
+                           1117 ;	 function lcd_option2
+                           1118 ;	-----------------------------------------
+   02CC                    1119 _lcd_option2:
+                           1120 ;	user_interface.c:75: unsigned char hexStringrowvals[2] = {0};
+   02CC 90s00r16           1121 	mov	dptr,#_lcd_option2_hexStringrowvals_1_1
+   02CF E4                 1122 	clr	a
+   02D0 F0                 1123 	movx	@dptr,a
+   02D1 90s00r17           1124 	mov	dptr,#(_lcd_option2_hexStringrowvals_1_1 + 0x0001)
+   02D4 F0                 1125 	movx	@dptr,a
+                           1126 ;	user_interface.c:80: printf("Enter 7 values corresponding to each row of 5x7 mattrix\r\n");
+   02D5 74r1C              1127 	mov	a,#__str_2
+   02D7 C0 E0              1128 	push	acc
+   02D9 74s00              1129 	mov	a,#(__str_2 >> 8)
+   02DB C0 E0              1130 	push	acc
+   02DD 74 80              1131 	mov	a,#0x80
+   02DF C0 E0              1132 	push	acc
+   02E1 12s00r00           1133 	lcall	_printf
+   02E4 15 81              1134 	dec	sp
+   02E6 15 81              1135 	dec	sp
+   02E8 15 81              1136 	dec	sp
+                           1137 ;	user_interface.c:81: while(i < 8)
+   02EA 7A 00              1138 	mov	r2,#0x00
+   02EC                    1139 00101$:
+   02EC BA 08 00           1140 	cjne	r2,#0x08,00113$
+   02EF                    1141 00113$:
+   02EF 50 58              1142 	jnc	00103$
+                           1143 ;	user_interface.c:83: row_vals[i] = hex2int(getHexString(hexStringrowvals,2),2);
+   02F1 EA                 1144 	mov	a,r2
+   02F2 24r0E              1145 	add	a,#_lcd_option2_row_vals_1_1
+   02F4 FB                 1146 	mov	r3,a
+   02F5 E4                 1147 	clr	a
+   02F6 34s00              1148 	addc	a,#(_lcd_option2_row_vals_1_1 >> 8)
+   02F8 FC                 1149 	mov	r4,a
+   02F9 90s00r06           1150 	mov	dptr,#_getHexString_PARM_2
+   02FC 74 02              1151 	mov	a,#0x02
+   02FE F0                 1152 	movx	@dptr,a
+   02FF 90s00r16           1153 	mov	dptr,#_lcd_option2_hexStringrowvals_1_1
+   0302 75 F0 00           1154 	mov	b,#0x00
+   0305 C0 02              1155 	push	ar2
+   0307 C0 03              1156 	push	ar3
+   0309 C0 04              1157 	push	ar4
+   030B 12s01r58           1158 	lcall	_getHexString
+   030E AD 82              1159 	mov	r5,dpl
+   0310 AE 83              1160 	mov	r6,dph
+   0312 AF F0              1161 	mov	r7,b
+   0314 90s00r00           1162 	mov	dptr,#_hex2int_PARM_2
+   0317 74 02              1163 	mov	a,#0x02
+   0319 F0                 1164 	movx	@dptr,a
+   031A 8D 82              1165 	mov	dpl,r5
+   031C 8E 83              1166 	mov	dph,r6
+   031E 8F F0              1167 	mov	b,r7
+   0320 12s00r00           1168 	lcall	_hex2int
+   0323 AD 82              1169 	mov	r5,dpl
+   0325 D0 04              1170 	pop	ar4
+   0327 D0 03              1171 	pop	ar3
+   0329 8B 82              1172 	mov	dpl,r3
+   032B 8C 83              1173 	mov	dph,r4
+   032D ED                 1174 	mov	a,r5
+   032E F0                 1175 	movx	@dptr,a
+                           1176 ;	user_interface.c:84: printf("\r\n");
+   032F 74r19              1177 	mov	a,#__str_1
+   0331 C0 E0              1178 	push	acc
+   0333 74s00              1179 	mov	a,#(__str_1 >> 8)
+   0335 C0 E0              1180 	push	acc
+   0337 74 80              1181 	mov	a,#0x80
+   0339 C0 E0              1182 	push	acc
+   033B 12s00r00           1183 	lcall	_printf
+   033E 15 81              1184 	dec	sp
+   0340 15 81              1185 	dec	sp
+   0342 15 81              1186 	dec	sp
+   0344 D0 02              1187 	pop	ar2
+                           1188 ;	user_interface.c:85: i++;
+   0346 0A                 1189 	inc	r2
+   0347 80 A3              1190 	sjmp	00101$
+   0349                    1191 00103$:
+                           1192 ;	user_interface.c:89: if(ccode < 8)
+   0349 90s00r00           1193 	mov	dptr,#_ccode
+   034C E0                 1194 	movx	a,@dptr
+   034D FA                 1195 	mov	r2,a
+   034E BA 08 00           1196 	cjne	r2,#0x08,00115$
+   0351                    1197 00115$:
+   0351 50 14              1198 	jnc	00105$
+                           1199 ;	user_interface.c:92: lcdcreatechar(ccode,row_vals);
+   0353 90s00r00           1200 	mov	dptr,#_lcdcreatechar_PARM_2
+   0356 74r0E              1201 	mov	a,#_lcd_option2_row_vals_1_1
+   0358 F0                 1202 	movx	@dptr,a
+   0359 A3                 1203 	inc	dptr
+   035A 74s00              1204 	mov	a,#(_lcd_option2_row_vals_1_1 >> 8)
+   035C F0                 1205 	movx	@dptr,a
+   035D A3                 1206 	inc	dptr
+   035E E4                 1207 	clr	a
+   035F F0                 1208 	movx	@dptr,a
+   0360 8A 82              1209 	mov	dpl,r2
+   0362 12s00r00           1210 	lcall	_lcdcreatechar
+   0365 80 2D              1211 	sjmp	00106$
+   0367                    1212 00105$:
+                           1213 ;	user_interface.c:97: printf("\r\nNo space left to store new generated characted. Deleting the 1st generated char and storing it there.");
+   0367 74r56              1214 	mov	a,#__str_3
+   0369 C0 E0              1215 	push	acc
+   036B 74s00              1216 	mov	a,#(__str_3 >> 8)
+   036D C0 E0              1217 	push	acc
+   036F 74 80              1218 	mov	a,#0x80
+   0371 C0 E0              1219 	push	acc
+   0373 12s00r00           1220 	lcall	_printf
+   0376 15 81              1221 	dec	sp
+   0378 15 81              1222 	dec	sp
+   037A 15 81              1223 	dec	sp
+                           1224 ;	user_interface.c:98: ccode = 0;
+   037C 90s00r00           1225 	mov	dptr,#_ccode
+   037F E4                 1226 	clr	a
+   0380 F0                 1227 	movx	@dptr,a
+                           1228 ;	user_interface.c:100: lcdcreatechar(ccode,row_vals);
+   0381 90s00r00           1229 	mov	dptr,#_lcdcreatechar_PARM_2
+   0384 74r0E              1230 	mov	a,#_lcd_option2_row_vals_1_1
+   0386 F0                 1231 	movx	@dptr,a
+   0387 A3                 1232 	inc	dptr
+   0388 74s00              1233 	mov	a,#(_lcd_option2_row_vals_1_1 >> 8)
+   038A F0                 1234 	movx	@dptr,a
+   038B A3                 1235 	inc	dptr
+   038C E4                 1236 	clr	a
+   038D F0                 1237 	movx	@dptr,a
+   038E 75 82 00           1238 	mov	dpl,#0x00
+   0391 12s00r00           1239 	lcall	_lcdcreatechar
+   0394                    1240 00106$:
+                           1241 ;	user_interface.c:105: ccode++;
+   0394 90s00r00           1242 	mov	dptr,#_ccode
+   0397 E0                 1243 	movx	a,@dptr
+   0398 24 01              1244 	add	a,#0x01
+   039A F0                 1245 	movx	@dptr,a
+   039B 22                 1246 	ret
+                           1247 ;------------------------------------------------------------
+                           1248 ;Allocation info for local variables in function 'lcd_option6'
+                           1249 ;------------------------------------------------------------
+                           1250 ;x                         Allocated with name '_lcd_option6_x_1_1'
+                           1251 ;y                         Allocated with name '_lcd_option6_y_1_1'
+                           1252 ;------------------------------------------------------------
+                           1253 ;	user_interface.c:109: void lcd_option6()
+                           1254 ;	-----------------------------------------
+                           1255 ;	 function lcd_option6
+                           1256 ;	-----------------------------------------
+   039C                    1257 _lcd_option6:
+                           1258 ;	user_interface.c:113: printf("Enter the row value between 0 to 3\r\n");
+   039C 74rBE              1259 	mov	a,#__str_4
+   039E C0 E0              1260 	push	acc
+   03A0 74s00              1261 	mov	a,#(__str_4 >> 8)
+   03A2 C0 E0              1262 	push	acc
+   03A4 74 80              1263 	mov	a,#0x80
+   03A6 C0 E0              1264 	push	acc
+   03A8 12s00r00           1265 	lcall	_printf
+   03AB 15 81              1266 	dec	sp
+   03AD 15 81              1267 	dec	sp
+   03AF 15 81              1268 	dec	sp
+                           1269 ;	user_interface.c:114: x = (unsigned char)convert_ascii_to_int();
+   03B1 12s02r17           1270 	lcall	_convert_ascii_to_int
+   03B4 AA 82              1271 	mov	r2,dpl
+   03B6 AB 83              1272 	mov	r3,dph
+   03B8 90s00r18           1273 	mov	dptr,#_lcd_option6_x_1_1
+   03BB EA                 1274 	mov	a,r2
+   03BC F0                 1275 	movx	@dptr,a
+                           1276 ;	user_interface.c:115: if (x > 4)
+   03BD 74 04              1277 	mov	a,#0x04
+   03BF B5 02 00           1278 	cjne	a,ar2,00109$
+   03C2                    1279 00109$:
+   03C2 50 1A              1280 	jnc	00102$
+                           1281 ;	user_interface.c:117: printf("invalid value\r\n");
+   03C4 74rE3              1282 	mov	a,#__str_5
+   03C6 C0 E0              1283 	push	acc
+   03C8 74s00              1284 	mov	a,#(__str_5 >> 8)
+   03CA C0 E0              1285 	push	acc
+   03CC 74 80              1286 	mov	a,#0x80
+   03CE C0 E0              1287 	push	acc
+   03D0 12s00r00           1288 	lcall	_printf
+   03D3 15 81              1289 	dec	sp
+   03D5 15 81              1290 	dec	sp
+   03D7 15 81              1291 	dec	sp
+                           1292 ;	user_interface.c:118: x=0;
+   03D9 90s00r18           1293 	mov	dptr,#_lcd_option6_x_1_1
+   03DC E4                 1294 	clr	a
+   03DD F0                 1295 	movx	@dptr,a
+   03DE                    1296 00102$:
+                           1297 ;	user_interface.c:120: printf("Enter the column value\r\n");
+   03DE 74rF3              1298 	mov	a,#__str_6
+   03E0 C0 E0              1299 	push	acc
+   03E2 74s00              1300 	mov	a,#(__str_6 >> 8)
+   03E4 C0 E0              1301 	push	acc
+   03E6 74 80              1302 	mov	a,#0x80
+   03E8 C0 E0              1303 	push	acc
+   03EA 12s00r00           1304 	lcall	_printf
+   03ED 15 81              1305 	dec	sp
+   03EF 15 81              1306 	dec	sp
+   03F1 15 81              1307 	dec	sp
+                           1308 ;	user_interface.c:121: y = (unsigned char)convert_ascii_to_int();
+   03F3 12s02r17           1309 	lcall	_convert_ascii_to_int
+   03F6 AA 82              1310 	mov	r2,dpl
+   03F8 AB 83              1311 	mov	r3,dph
+   03FA 90s00r19           1312 	mov	dptr,#_lcd_option6_y_1_1
+   03FD EA                 1313 	mov	a,r2
+   03FE F0                 1314 	movx	@dptr,a
+                           1315 ;	user_interface.c:122: if (y > 15)
+   03FF 74 0F              1316 	mov	a,#0x0F
+   0401 B5 02 00           1317 	cjne	a,ar2,00111$
+   0404                    1318 00111$:
+   0404 50 1A              1319 	jnc	00104$
+                           1320 ;	user_interface.c:124: printf("invalid value\r\n");
+   0406 74rE3              1321 	mov	a,#__str_5
+   0408 C0 E0              1322 	push	acc
+   040A 74s00              1323 	mov	a,#(__str_5 >> 8)
+   040C C0 E0              1324 	push	acc
+   040E 74 80              1325 	mov	a,#0x80
+   0410 C0 E0              1326 	push	acc
+   0412 12s00r00           1327 	lcall	_printf
+   0415 15 81              1328 	dec	sp
+   0417 15 81              1329 	dec	sp
+   0419 15 81              1330 	dec	sp
+                           1331 ;	user_interface.c:125: y=0;
+   041B 90s00r19           1332 	mov	dptr,#_lcd_option6_y_1_1
+   041E E4                 1333 	clr	a
+   041F F0                 1334 	movx	@dptr,a
+   0420                    1335 00104$:
+                           1336 ;	user_interface.c:127: lcdgotoxy(x,y);
+   0420 90s00r18           1337 	mov	dptr,#_lcd_option6_x_1_1
+   0423 E0                 1338 	movx	a,@dptr
+   0424 FA                 1339 	mov	r2,a
+   0425 90s00r19           1340 	mov	dptr,#_lcd_option6_y_1_1
+   0428 E0                 1341 	movx	a,@dptr
+   0429 90s00r00           1342 	mov	dptr,#_lcdgotoxy_PARM_2
+   042C F0                 1343 	movx	@dptr,a
+   042D 8A 82              1344 	mov	dpl,r2
+   042F 02s00r00           1345 	ljmp	_lcdgotoxy
+                           1346 ;------------------------------------------------------------
+                           1347 ;Allocation info for local variables in function 'lcd_option7'
+                           1348 ;------------------------------------------------------------
+                           1349 ;a                         Allocated with name '_lcd_option7_a_1_1'
+                           1350 ;------------------------------------------------------------
+                           1351 ;	user_interface.c:129: void lcd_option7()
+                           1352 ;	-----------------------------------------
+                           1353 ;	 function lcd_option7
+                           1354 ;	-----------------------------------------
+   0432                    1355 _lcd_option7:
+                           1356 ;	user_interface.c:133: printf("Enter the Character\r\n");
+   0432 74r0C              1357 	mov	a,#__str_7
+   0434 C0 E0              1358 	push	acc
+   0436 74s01              1359 	mov	a,#(__str_7 >> 8)
+   0438 C0 E0              1360 	push	acc
+   043A 74 80              1361 	mov	a,#0x80
+   043C C0 E0              1362 	push	acc
+   043E 12s00r00           1363 	lcall	_printf
+   0441 15 81              1364 	dec	sp
+   0443 15 81              1365 	dec	sp
+   0445 15 81              1366 	dec	sp
+                           1367 ;	user_interface.c:134: a = getchar();
+   0447 12s00r00           1368 	lcall	_getchar
+                           1369 ;	user_interface.c:135: lcdputch(a);
+   044A 02s00r00           1370 	ljmp	_lcdputch
+                           1371 ;------------------------------------------------------------
+                           1372 ;Allocation info for local variables in function 'lcd_option8'
+                           1373 ;------------------------------------------------------------
+                           1374 ;a                         Allocated with name '_lcd_option8_a_1_1'
+                           1375 ;------------------------------------------------------------
+                           1376 ;	user_interface.c:137: void lcd_option8()
+                           1377 ;	-----------------------------------------
+                           1378 ;	 function lcd_option8
+                           1379 ;	-----------------------------------------
+   044D                    1380 _lcd_option8:
+                           1381 ;	user_interface.c:141: printf("Enter the string\r\n");
+   044D 74r22              1382 	mov	a,#__str_8
+   044F C0 E0              1383 	push	acc
+   0451 74s01              1384 	mov	a,#(__str_8 >> 8)
+   0453 C0 E0              1385 	push	acc
+   0455 74 80              1386 	mov	a,#0x80
+   0457 C0 E0              1387 	push	acc
+   0459 12s00r00           1388 	lcall	_printf
+   045C 15 81              1389 	dec	sp
+   045E 15 81              1390 	dec	sp
+   0460 15 81              1391 	dec	sp
+                           1392 ;	user_interface.c:142: a = getchar();
+   0462 12s00r00           1393 	lcall	_getchar
+   0465 E5 82              1394 	mov	a,dpl
+   0467 90s00r1A           1395 	mov	dptr,#_lcd_option8_a_1_1
+   046A F0                 1396 	movx	@dptr,a
+                           1397 ;	user_interface.c:143: while(a != '\r')
+   046B                    1398 00101$:
+   046B 90s00r1A           1399 	mov	dptr,#_lcd_option8_a_1_1
+   046E E0                 1400 	movx	a,@dptr
+   046F FA                 1401 	mov	r2,a
+   0470 FB                 1402 	mov	r3,a
+   0471 7C 00              1403 	mov	r4,#0x00
+   0473 BB 0D 04           1404 	cjne	r3,#0x0D,00108$
+   0476 BC 00 01           1405 	cjne	r4,#0x00,00108$
+   0479 22                 1406 	ret
+   047A                    1407 00108$:
+                           1408 ;	user_interface.c:145: lcdputch(a);
+   047A 8A 82              1409 	mov	dpl,r2
+   047C 12s00r00           1410 	lcall	_lcdputch
+                           1411 ;	user_interface.c:146: a = getchar();
+   047F 12s00r00           1412 	lcall	_getchar
+   0482 E5 82              1413 	mov	a,dpl
+   0484 90s00r1A           1414 	mov	dptr,#_lcd_option8_a_1_1
+   0487 F0                 1415 	movx	@dptr,a
+   0488 80 E1              1416 	sjmp	00101$
+                           1417 ;------------------------------------------------------------
+                           1418 ;Allocation info for local variables in function 'lcd_option9'
+                           1419 ;------------------------------------------------------------
+                           1420 ;a                         Allocated with name '_lcd_option9_a_1_1'
+                           1421 ;------------------------------------------------------------
+                           1422 ;	user_interface.c:149: void lcd_option9()
+                           1423 ;	-----------------------------------------
+                           1424 ;	 function lcd_option9
+                           1425 ;	-----------------------------------------
+   048A                    1426 _lcd_option9:
+                           1427 ;	user_interface.c:152: printf("Enter the position where you want to print the custom character.\r\n");
+   048A 74r35              1428 	mov	a,#__str_9
+   048C C0 E0              1429 	push	acc
+   048E 74s01              1430 	mov	a,#(__str_9 >> 8)
+   0490 C0 E0              1431 	push	acc
+   0492 74 80              1432 	mov	a,#0x80
+   0494 C0 E0              1433 	push	acc
+   0496 12s00r00           1434 	lcall	_printf
+   0499 15 81              1435 	dec	sp
+   049B 15 81              1436 	dec	sp
+   049D 15 81              1437 	dec	sp
+                           1438 ;	user_interface.c:153: lcd_option6();
+   049F 12s03r9C           1439 	lcall	_lcd_option6
+                           1440 ;	user_interface.c:154: printf("Enter the position of the custom character generated: ");
+   04A2 74r78              1441 	mov	a,#__str_10
+   04A4 C0 E0              1442 	push	acc
+   04A6 74s01              1443 	mov	a,#(__str_10 >> 8)
+   04A8 C0 E0              1444 	push	acc
+   04AA 74 80              1445 	mov	a,#0x80
+   04AC C0 E0              1446 	push	acc
+   04AE 12s00r00           1447 	lcall	_printf
+   04B1 15 81              1448 	dec	sp
+   04B3 15 81              1449 	dec	sp
+   04B5 15 81              1450 	dec	sp
+                           1451 ;	user_interface.c:155: a = (unsigned char)convert_ascii_to_int();
+   04B7 12s02r17           1452 	lcall	_convert_ascii_to_int
+                           1453 ;	user_interface.c:156: LCD_print_CG(a);
+   04BA 12s00r00           1454 	lcall	_LCD_print_CG
+                           1455 ;	user_interface.c:157: printf("\r\n");
+   04BD 74r19              1456 	mov	a,#__str_1
+   04BF C0 E0              1457 	push	acc
+   04C1 74s00              1458 	mov	a,#(__str_1 >> 8)
+   04C3 C0 E0              1459 	push	acc
+   04C5 74 80              1460 	mov	a,#0x80
+   04C7 C0 E0              1461 	push	acc
+   04C9 12s00r00           1462 	lcall	_printf
+   04CC 15 81              1463 	dec	sp
+   04CE 15 81              1464 	dec	sp
+   04D0 15 81              1465 	dec	sp
+   04D2 22                 1466 	ret
+                           1467 ;------------------------------------------------------------
+                           1468 ;Allocation info for local variables in function 'lcd_user_interface'
+                           1469 ;------------------------------------------------------------
+                           1470 ;Entered_option            Allocated with name '_lcd_user_interface_Entered_option_2_2'
+                           1471 ;------------------------------------------------------------
+                           1472 ;	user_interface.c:161: void lcd_user_interface()
+                           1473 ;	-----------------------------------------
+                           1474 ;	 function lcd_user_interface
+                           1475 ;	-----------------------------------------
+   04D3                    1476 _lcd_user_interface:
+                           1477 ;	user_interface.c:163: while(1)
+   04D3                    1478 00115$:
+                           1479 ;	user_interface.c:166: printf("\r\n ENTER ANY ONE OF THE FOLLOWING OPTIONS: \r\n");
+   04D3 74rAF              1480 	mov	a,#__str_11
+   04D5 C0 E0              1481 	push	acc
+   04D7 74s01              1482 	mov	a,#(__str_11 >> 8)
+   04D9 C0 E0              1483 	push	acc
+   04DB 74 80              1484 	mov	a,#0x80
+   04DD C0 E0              1485 	push	acc
+   04DF 12s00r00           1486 	lcall	_printf
+   04E2 15 81              1487 	dec	sp
+   04E4 15 81              1488 	dec	sp
+   04E6 15 81              1489 	dec	sp
+                           1490 ;	user_interface.c:167: printf("0. EXIT\r\n");
+   04E8 74rDD              1491 	mov	a,#__str_12
+   04EA C0 E0              1492 	push	acc
+   04EC 74s01              1493 	mov	a,#(__str_12 >> 8)
+   04EE C0 E0              1494 	push	acc
+   04F0 74 80              1495 	mov	a,#0x80
+   04F2 C0 E0              1496 	push	acc
+   04F4 12s00r00           1497 	lcall	_printf
+   04F7 15 81              1498 	dec	sp
+   04F9 15 81              1499 	dec	sp
+   04FB 15 81              1500 	dec	sp
+                           1501 ;	user_interface.c:168: printf("1. Simple program to demonstrate LCD functions \r\n");
+   04FD 74rE7              1502 	mov	a,#__str_13
+   04FF C0 E0              1503 	push	acc
+   0501 74s01              1504 	mov	a,#(__str_13 >> 8)
+   0503 C0 E0              1505 	push	acc
+   0505 74 80              1506 	mov	a,#0x80
+   0507 C0 E0              1507 	push	acc
+   0509 12s00r00           1508 	lcall	_printf
+   050C 15 81              1509 	dec	sp
+   050E 15 81              1510 	dec	sp
+   0510 15 81              1511 	dec	sp
+                           1512 ;	user_interface.c:169: printf("2. To create custom characters \r\n");
+   0512 74r19              1513 	mov	a,#__str_14
+   0514 C0 E0              1514 	push	acc
+   0516 74s02              1515 	mov	a,#(__str_14 >> 8)
+   0518 C0 E0              1516 	push	acc
+   051A 74 80              1517 	mov	a,#0x80
+   051C C0 E0              1518 	push	acc
+   051E 12s00r00           1519 	lcall	_printf
+   0521 15 81              1520 	dec	sp
+   0523 15 81              1521 	dec	sp
+   0525 15 81              1522 	dec	sp
+                           1523 ;	user_interface.c:170: printf("3. DDRAM dump in hex\r\n");
+   0527 74r3B              1524 	mov	a,#__str_15
+   0529 C0 E0              1525 	push	acc
+   052B 74s02              1526 	mov	a,#(__str_15 >> 8)
+   052D C0 E0              1527 	push	acc
+   052F 74 80              1528 	mov	a,#0x80
+   0531 C0 E0              1529 	push	acc
+   0533 12s00r00           1530 	lcall	_printf
+   0536 15 81              1531 	dec	sp
+   0538 15 81              1532 	dec	sp
+   053A 15 81              1533 	dec	sp
+                           1534 ;	user_interface.c:171: printf("4. CGRAM dump in hex\r\n");
+   053C 74r52              1535 	mov	a,#__str_16
+   053E C0 E0              1536 	push	acc
+   0540 74s02              1537 	mov	a,#(__str_16 >> 8)
+   0542 C0 E0              1538 	push	acc
+   0544 74 80              1539 	mov	a,#0x80
+   0546 C0 E0              1540 	push	acc
+   0548 12s00r00           1541 	lcall	_printf
+   054B 15 81              1542 	dec	sp
+   054D 15 81              1543 	dec	sp
+   054F 15 81              1544 	dec	sp
+                           1545 ;	user_interface.c:172: printf("5. Clear LCD display\r\n");
+   0551 74r69              1546 	mov	a,#__str_17
+   0553 C0 E0              1547 	push	acc
+   0555 74s02              1548 	mov	a,#(__str_17 >> 8)
+   0557 C0 E0              1549 	push	acc
+   0559 74 80              1550 	mov	a,#0x80
+   055B C0 E0              1551 	push	acc
+   055D 12s00r00           1552 	lcall	_printf
+   0560 15 81              1553 	dec	sp
+   0562 15 81              1554 	dec	sp
+   0564 15 81              1555 	dec	sp
+                           1556 ;	user_interface.c:173: printf("6. Move cursor to user defined position\r\n");
+   0566 74r80              1557 	mov	a,#__str_18
+   0568 C0 E0              1558 	push	acc
+   056A 74s02              1559 	mov	a,#(__str_18 >> 8)
+   056C C0 E0              1560 	push	acc
+   056E 74 80              1561 	mov	a,#0x80
+   0570 C0 E0              1562 	push	acc
+   0572 12s00r00           1563 	lcall	_printf
+   0575 15 81              1564 	dec	sp
+   0577 15 81              1565 	dec	sp
+   0579 15 81              1566 	dec	sp
+                           1567 ;	user_interface.c:174: printf("7. Display entered character on the LCD\r\n");
+   057B 74rAA              1568 	mov	a,#__str_19
+   057D C0 E0              1569 	push	acc
+   057F 74s02              1570 	mov	a,#(__str_19 >> 8)
+   0581 C0 E0              1571 	push	acc
+   0583 74 80              1572 	mov	a,#0x80
+   0585 C0 E0              1573 	push	acc
+   0587 12s00r00           1574 	lcall	_printf
+   058A 15 81              1575 	dec	sp
+   058C 15 81              1576 	dec	sp
+   058E 15 81              1577 	dec	sp
+                           1578 ;	user_interface.c:175: printf("8. Display entered string on the LCD\r\n");
+   0590 74rD4              1579 	mov	a,#__str_20
+   0592 C0 E0              1580 	push	acc
+   0594 74s02              1581 	mov	a,#(__str_20 >> 8)
+   0596 C0 E0              1582 	push	acc
+   0598 74 80              1583 	mov	a,#0x80
+   059A C0 E0              1584 	push	acc
+   059C 12s00r00           1585 	lcall	_printf
+   059F 15 81              1586 	dec	sp
+   05A1 15 81              1587 	dec	sp
+   05A3 15 81              1588 	dec	sp
+                           1589 ;	user_interface.c:176: printf("9. Display created character on the LCD\r\n");
+   05A5 74rFB              1590 	mov	a,#__str_21
+   05A7 C0 E0              1591 	push	acc
+   05A9 74s02              1592 	mov	a,#(__str_21 >> 8)
+   05AB C0 E0              1593 	push	acc
+   05AD 74 80              1594 	mov	a,#0x80
+   05AF C0 E0              1595 	push	acc
+   05B1 12s00r00           1596 	lcall	_printf
+   05B4 15 81              1597 	dec	sp
+   05B6 15 81              1598 	dec	sp
+   05B8 15 81              1599 	dec	sp
+                           1600 ;	user_interface.c:177: printf("A. Generate and Display CU logo\r\n");
+   05BA 74r25              1601 	mov	a,#__str_22
+   05BC C0 E0              1602 	push	acc
+   05BE 74s03              1603 	mov	a,#(__str_22 >> 8)
+   05C0 C0 E0              1604 	push	acc
+   05C2 74 80              1605 	mov	a,#0x80
+   05C4 C0 E0              1606 	push	acc
+   05C6 12s00r00           1607 	lcall	_printf
+   05C9 15 81              1608 	dec	sp
+   05CB 15 81              1609 	dec	sp
+   05CD 15 81              1610 	dec	sp
+                           1611 ;	user_interface.c:178: printf("Enter Option: ");
+   05CF 74r47              1612 	mov	a,#__str_23
+   05D1 C0 E0              1613 	push	acc
+   05D3 74s03              1614 	mov	a,#(__str_23 >> 8)
+   05D5 C0 E0              1615 	push	acc
+   05D7 74 80              1616 	mov	a,#0x80
+   05D9 C0 E0              1617 	push	acc
+   05DB 12s00r00           1618 	lcall	_printf
+   05DE 15 81              1619 	dec	sp
+   05E0 15 81              1620 	dec	sp
+   05E2 15 81              1621 	dec	sp
+                           1622 ;	user_interface.c:179: Entered_option = getchar();
+   05E4 12s00r00           1623 	lcall	_getchar
+   05E7 AA 82              1624 	mov	r2,dpl
+                           1625 ;	user_interface.c:180: printf("\r\n");
+   05E9 C0 02              1626 	push	ar2
+   05EB 74r19              1627 	mov	a,#__str_1
+   05ED C0 E0              1628 	push	acc
+   05EF 74s00              1629 	mov	a,#(__str_1 >> 8)
+   05F1 C0 E0              1630 	push	acc
+   05F3 74 80              1631 	mov	a,#0x80
+   05F5 C0 E0              1632 	push	acc
+   05F7 12s00r00           1633 	lcall	_printf
+   05FA 15 81              1634 	dec	sp
+   05FC 15 81              1635 	dec	sp
+   05FE 15 81              1636 	dec	sp
+   0600 D0 02              1637 	pop	ar2
+                           1638 ;	user_interface.c:182: switch(Entered_option)
+   0602 8A 03              1639 	mov	ar3,r2
+   0604 BB 30 00           1640 	cjne	r3,#0x30,00122$
+   0607                    1641 00122$:
+   0607 50 03              1642 	jnc	00123$
+   0609 02s07r2F           1643 	ljmp	00112$
+   060C                    1644 00123$:
+   060C 74 41              1645 	mov	a,#0x41
+   060E B5 03 00           1646 	cjne	a,ar3,00124$
+   0611                    1647 00124$:
+   0611 50 03              1648 	jnc	00125$
+   0613 02s07r2F           1649 	ljmp	00112$
+   0616                    1650 00125$:
+   0616 EA                 1651 	mov	a,r2
+   0617 24 D0              1652 	add	a,#0xd0
+   0619 FA                 1653 	mov	r2,a
+   061A 24 09              1654 	add	a,#(00126$-3-.)
+   061C 83                 1655 	movc	a,@a+pc
+   061D C0 E0              1656 	push	acc
+   061F EA                 1657 	mov	a,r2
+   0620 24 15              1658 	add	a,#(00127$-3-.)
+   0622 83                 1659 	movc	a,@a+pc
+   0623 C0 E0              1660 	push	acc
+   0625 22                 1661 	ret
+   0626                    1662 00126$:
+   0626r4A                 1663 	.db	00101$
+   0627r4B                 1664 	.db	00102$
+   0628r51                 1665 	.db	00103$
+   0629r6C                 1666 	.db	00104$
+   062Ar87                 1667 	.db	00105$
+   062BrA2                 1668 	.db	00106$
+   062CrBD                 1669 	.db	00107$
+   062DrD8                 1670 	.db	00108$
+   062ErF3                 1671 	.db	00109$
+   062Fr0E                 1672 	.db	00110$
+   0630r2F                 1673 	.db	00112$
+   0631r2F                 1674 	.db	00112$
+   0632r2F                 1675 	.db	00112$
+   0633r2F                 1676 	.db	00112$
+   0634r2F                 1677 	.db	00112$
+   0635r2F                 1678 	.db	00112$
+   0636r2F                 1679 	.db	00112$
+   0637r29                 1680 	.db	00111$
+   0638                    1681 00127$:
+   0638s06                 1682 	.db	00101$>>8
+   0639s06                 1683 	.db	00102$>>8
+   063As06                 1684 	.db	00103$>>8
+   063Bs06                 1685 	.db	00104$>>8
+   063Cs06                 1686 	.db	00105$>>8
+   063Ds06                 1687 	.db	00106$>>8
+   063Es06                 1688 	.db	00107$>>8
+   063Fs06                 1689 	.db	00108$>>8
+   0640s06                 1690 	.db	00109$>>8
+   0641s07                 1691 	.db	00110$>>8
+   0642s07                 1692 	.db	00112$>>8
+   0643s07                 1693 	.db	00112$>>8
+   0644s07                 1694 	.db	00112$>>8
+   0645s07                 1695 	.db	00112$>>8
+   0646s07                 1696 	.db	00112$>>8
+   0647s07                 1697 	.db	00112$>>8
+   0648s07                 1698 	.db	00112$>>8
+   0649s07                 1699 	.db	00111$>>8
+                           1700 ;	user_interface.c:184: case '0':
+   064A                    1701 00101$:
+                           1702 ;	user_interface.c:185: return;
+   064A 22                 1703 	ret
+                           1704 ;	user_interface.c:186: case '1':
+   064B                    1705 00102$:
+                           1706 ;	user_interface.c:188: lcd_simpledemo();
+   064B 12s00r00           1707 	lcall	_lcd_simpledemo
+                           1708 ;	user_interface.c:189: break;
+   064E 02s04rD3           1709 	ljmp	00115$
+                           1710 ;	user_interface.c:190: case '2':
+   0651                    1711 00103$:
+                           1712 ;	user_interface.c:191: printf("To create custom character on LCD\r\n");
+   0651 74r56              1713 	mov	a,#__str_24
+   0653 C0 E0              1714 	push	acc
+   0655 74s03              1715 	mov	a,#(__str_24 >> 8)
+   0657 C0 E0              1716 	push	acc
+   0659 74 80              1717 	mov	a,#0x80
+   065B C0 E0              1718 	push	acc
+   065D 12s00r00           1719 	lcall	_printf
+   0660 15 81              1720 	dec	sp
+   0662 15 81              1721 	dec	sp
+   0664 15 81              1722 	dec	sp
+                           1723 ;	user_interface.c:192: lcd_option2();
+   0666 12s02rCC           1724 	lcall	_lcd_option2
+                           1725 ;	user_interface.c:194: break;
+   0669 02s04rD3           1726 	ljmp	00115$
+                           1727 ;	user_interface.c:195: case '3':
+   066C                    1728 00104$:
+                           1729 ;	user_interface.c:196: printf("To read the entire content of the LCD DDRAM and display it in hex\r\n ");
+   066C 74r7A              1730 	mov	a,#__str_25
+   066E C0 E0              1731 	push	acc
+   0670 74s03              1732 	mov	a,#(__str_25 >> 8)
+   0672 C0 E0              1733 	push	acc
+   0674 74 80              1734 	mov	a,#0x80
+   0676 C0 E0              1735 	push	acc
+   0678 12s00r00           1736 	lcall	_printf
+   067B 15 81              1737 	dec	sp
+   067D 15 81              1738 	dec	sp
+   067F 15 81              1739 	dec	sp
+                           1740 ;	user_interface.c:197: DDRAM_hexdump();
+   0681 12s00r00           1741 	lcall	_DDRAM_hexdump
+                           1742 ;	user_interface.c:198: break;
+   0684 02s04rD3           1743 	ljmp	00115$
+                           1744 ;	user_interface.c:199: case '4':
+   0687                    1745 00105$:
+                           1746 ;	user_interface.c:200: printf("To read the entire content of the LCD CGRAM and display it in hex\r\n");
+   0687 74rBF              1747 	mov	a,#__str_26
+   0689 C0 E0              1748 	push	acc
+   068B 74s03              1749 	mov	a,#(__str_26 >> 8)
+   068D C0 E0              1750 	push	acc
+   068F 74 80              1751 	mov	a,#0x80
+   0691 C0 E0              1752 	push	acc
+   0693 12s00r00           1753 	lcall	_printf
+   0696 15 81              1754 	dec	sp
+   0698 15 81              1755 	dec	sp
+   069A 15 81              1756 	dec	sp
+                           1757 ;	user_interface.c:201: CGRAM_hexdump();
+   069C 12s00r00           1758 	lcall	_CGRAM_hexdump
+                           1759 ;	user_interface.c:202: break;
+   069F 02s04rD3           1760 	ljmp	00115$
+                           1761 ;	user_interface.c:203: case '5':
+   06A2                    1762 00106$:
+                           1763 ;	user_interface.c:204: printf("To clear the contents of the LCD\r\n");
+   06A2 74r03              1764 	mov	a,#__str_27
+   06A4 C0 E0              1765 	push	acc
+   06A6 74s04              1766 	mov	a,#(__str_27 >> 8)
+   06A8 C0 E0              1767 	push	acc
+   06AA 74 80              1768 	mov	a,#0x80
+   06AC C0 E0              1769 	push	acc
+   06AE 12s00r00           1770 	lcall	_printf
+   06B1 15 81              1771 	dec	sp
+   06B3 15 81              1772 	dec	sp
+   06B5 15 81              1773 	dec	sp
+                           1774 ;	user_interface.c:205: lcdclear();
+   06B7 12s00r00           1775 	lcall	_lcdclear
+                           1776 ;	user_interface.c:206: break;
+   06BA 02s04rD3           1777 	ljmp	00115$
+                           1778 ;	user_interface.c:207: case '6':
+   06BD                    1779 00107$:
+                           1780 ;	user_interface.c:208: printf("Move cursor to user defined position\r\n");
+   06BD 74r26              1781 	mov	a,#__str_28
+   06BF C0 E0              1782 	push	acc
+   06C1 74s04              1783 	mov	a,#(__str_28 >> 8)
+   06C3 C0 E0              1784 	push	acc
+   06C5 74 80              1785 	mov	a,#0x80
+   06C7 C0 E0              1786 	push	acc
+   06C9 12s00r00           1787 	lcall	_printf
+   06CC 15 81              1788 	dec	sp
+   06CE 15 81              1789 	dec	sp
+   06D0 15 81              1790 	dec	sp
+                           1791 ;	user_interface.c:209: lcd_option6();
+   06D2 12s03r9C           1792 	lcall	_lcd_option6
+                           1793 ;	user_interface.c:210: break;
+   06D5 02s04rD3           1794 	ljmp	00115$
+                           1795 ;	user_interface.c:211: case '7':
+   06D8                    1796 00108$:
+                           1797 ;	user_interface.c:212: printf("To display the entered character on LCD\r\n");
+   06D8 74r4D              1798 	mov	a,#__str_29
+   06DA C0 E0              1799 	push	acc
+   06DC 74s04              1800 	mov	a,#(__str_29 >> 8)
+   06DE C0 E0              1801 	push	acc
+   06E0 74 80              1802 	mov	a,#0x80
+   06E2 C0 E0              1803 	push	acc
+   06E4 12s00r00           1804 	lcall	_printf
+   06E7 15 81              1805 	dec	sp
+   06E9 15 81              1806 	dec	sp
+   06EB 15 81              1807 	dec	sp
+                           1808 ;	user_interface.c:213: lcd_option7();
+   06ED 12s04r32           1809 	lcall	_lcd_option7
+                           1810 ;	user_interface.c:214: break;
+   06F0 02s04rD3           1811 	ljmp	00115$
+                           1812 ;	user_interface.c:215: case '8':
+   06F3                    1813 00109$:
+                           1814 ;	user_interface.c:216: printf("To display the entered string on LCD\r\n");
+   06F3 74r77              1815 	mov	a,#__str_30
+   06F5 C0 E0              1816 	push	acc
+   06F7 74s04              1817 	mov	a,#(__str_30 >> 8)
+   06F9 C0 E0              1818 	push	acc
+   06FB 74 80              1819 	mov	a,#0x80
+   06FD C0 E0              1820 	push	acc
+   06FF 12s00r00           1821 	lcall	_printf
+   0702 15 81              1822 	dec	sp
+   0704 15 81              1823 	dec	sp
+   0706 15 81              1824 	dec	sp
+                           1825 ;	user_interface.c:217: lcd_option8();
+   0708 12s04r4D           1826 	lcall	_lcd_option8
+                           1827 ;	user_interface.c:218: break;
+   070B 02s04rD3           1828 	ljmp	00115$
+                           1829 ;	user_interface.c:219: case '9':
+   070E                    1830 00110$:
+                           1831 ;	user_interface.c:220: printf("To display created custom character on the LCD\r\n");
+   070E 74r9E              1832 	mov	a,#__str_31
+   0710 C0 E0              1833 	push	acc
+   0712 74s04              1834 	mov	a,#(__str_31 >> 8)
+   0714 C0 E0              1835 	push	acc
+   0716 74 80              1836 	mov	a,#0x80
+   0718 C0 E0              1837 	push	acc
+   071A 12s00r00           1838 	lcall	_printf
+   071D 15 81              1839 	dec	sp
+   071F 15 81              1840 	dec	sp
+   0721 15 81              1841 	dec	sp
+                           1842 ;	user_interface.c:221: lcd_option9();
+   0723 12s04r8A           1843 	lcall	_lcd_option9
+                           1844 ;	user_interface.c:222: break;
+   0726 02s04rD3           1845 	ljmp	00115$
+                           1846 ;	user_interface.c:223: case 'A':
+   0729                    1847 00111$:
+                           1848 ;	user_interface.c:224: createAndDisplay_CULogo();
+   0729 12s00r00           1849 	lcall	_createAndDisplay_CULogo
+                           1850 ;	user_interface.c:225: break;
+   072C 02s04rD3           1851 	ljmp	00115$
+                           1852 ;	user_interface.c:226: default:
+   072F                    1853 00112$:
+                           1854 ;	user_interface.c:227: printf("ENTER VALUE FROM THE USER MENU\r\n");
+   072F 74rCF              1855 	mov	a,#__str_32
+   0731 C0 E0              1856 	push	acc
+   0733 74s04              1857 	mov	a,#(__str_32 >> 8)
+   0735 C0 E0              1858 	push	acc
+   0737 74 80              1859 	mov	a,#0x80
+   0739 C0 E0              1860 	push	acc
+   073B 12s00r00           1861 	lcall	_printf
+   073E 15 81              1862 	dec	sp
+   0740 15 81              1863 	dec	sp
+   0742 15 81              1864 	dec	sp
+                           1865 ;	user_interface.c:231: }
+   0744 02s04rD3           1866 	ljmp	00115$
+                           1867 ;------------------------------------------------------------
+                           1868 ;Allocation info for local variables in function 'I2C_user_interface'
+                           1869 ;------------------------------------------------------------
+                           1870 ;Entered_option            Allocated with name '_I2C_user_interface_Entered_option_2_2'
+                           1871 ;eeprom_address_int        Allocated with name '_I2C_user_interface_eeprom_address_int_2_2'
+                           1872 ;data_entered_int          Allocated with name '_I2C_user_interface_data_entered_int_2_2'
+                           1873 ;data_count                Allocated with name '_I2C_user_interface_data_count_2_2'
+                           1874 ;address_count             Allocated with name '_I2C_user_interface_address_count_2_2'
+                           1875 ;start_addr_int            Allocated with name '_I2C_user_interface_start_addr_int_2_2'
+                           1876 ;end_addr_int              Allocated with name '_I2C_user_interface_end_addr_int_2_2'
+                           1877 ;range_indiff              Allocated with name '_I2C_user_interface_range_indiff_2_2'
+                           1878 ;i                         Allocated with name '_I2C_user_interface_i_2_2'
+                           1879 ;j                         Allocated with name '_I2C_user_interface_j_2_2'
+                           1880 ;hexStringAdd              Allocated with name '_I2C_user_interface_hexStringAdd_2_2'
+                           1881 ;hexStringData             Allocated with name '_I2C_user_interface_hexStringData_2_2'
+                           1882 ;------------------------------------------------------------
+                           1883 ;	user_interface.c:236: void I2C_user_interface()
+                           1884 ;	-----------------------------------------
+                           1885 ;	 function I2C_user_interface
+                           1886 ;	-----------------------------------------
+   0747                    1887 _I2C_user_interface:
+                           1888 ;	user_interface.c:238: while(1)
+   0747                    1889 00126$:
+                           1890 ;	user_interface.c:250: unsigned char hexStringAdd[4] = {0};
+   0747 90s00r1D           1891 	mov	dptr,#_I2C_user_interface_hexStringAdd_2_2
+   074A E4                 1892 	clr	a
+   074B F0                 1893 	movx	@dptr,a
+   074C 90s00r1E           1894 	mov	dptr,#(_I2C_user_interface_hexStringAdd_2_2 + 0x0001)
+   074F F0                 1895 	movx	@dptr,a
+   0750 90s00r1F           1896 	mov	dptr,#(_I2C_user_interface_hexStringAdd_2_2 + 0x0002)
+   0753 F0                 1897 	movx	@dptr,a
+   0754 90s00r20           1898 	mov	dptr,#(_I2C_user_interface_hexStringAdd_2_2 + 0x0003)
+   0757 F0                 1899 	movx	@dptr,a
+                           1900 ;	user_interface.c:251: unsigned char hexStringData[2] = {0};
+   0758 90s00r21           1901 	mov	dptr,#_I2C_user_interface_hexStringData_2_2
+   075B E4                 1902 	clr	a
+   075C F0                 1903 	movx	@dptr,a
+   075D 90s00r22           1904 	mov	dptr,#(_I2C_user_interface_hexStringData_2_2 + 0x0001)
+   0760 F0                 1905 	movx	@dptr,a
+                           1906 ;	user_interface.c:254: printf("\r\n ENTER ANY ONE OF THE FOLLOWING OPTIONS: \r\n");
+   0761 74rAF              1907 	mov	a,#__str_11
+   0763 C0 E0              1908 	push	acc
+   0765 74s01              1909 	mov	a,#(__str_11 >> 8)
+   0767 C0 E0              1910 	push	acc
+   0769 74 80              1911 	mov	a,#0x80
+   076B C0 E0              1912 	push	acc
+   076D 12s00r00           1913 	lcall	_printf
+   0770 15 81              1914 	dec	sp
+   0772 15 81              1915 	dec	sp
+   0774 15 81              1916 	dec	sp
+                           1917 ;	user_interface.c:255: printf("0. EXIT\r\n");
+   0776 74rDD              1918 	mov	a,#__str_12
+   0778 C0 E0              1919 	push	acc
+   077A 74s01              1920 	mov	a,#(__str_12 >> 8)
+   077C C0 E0              1921 	push	acc
+   077E 74 80              1922 	mov	a,#0x80
+   0780 C0 E0              1923 	push	acc
+   0782 12s00r00           1924 	lcall	_printf
+   0785 15 81              1925 	dec	sp
+   0787 15 81              1926 	dec	sp
+   0789 15 81              1927 	dec	sp
+                           1928 ;	user_interface.c:256: printf("1. WRITE BYTE \r\n");
+   078B 74rF0              1929 	mov	a,#__str_33
+   078D C0 E0              1930 	push	acc
+   078F 74s04              1931 	mov	a,#(__str_33 >> 8)
+   0791 C0 E0              1932 	push	acc
+   0793 74 80              1933 	mov	a,#0x80
+   0795 C0 E0              1934 	push	acc
+   0797 12s00r00           1935 	lcall	_printf
+   079A 15 81              1936 	dec	sp
+   079C 15 81              1937 	dec	sp
+   079E 15 81              1938 	dec	sp
+                           1939 ;	user_interface.c:257: printf("2. READ BYTE \r\n");
+   07A0 74r01              1940 	mov	a,#__str_34
+   07A2 C0 E0              1941 	push	acc
+   07A4 74s05              1942 	mov	a,#(__str_34 >> 8)
+   07A6 C0 E0              1943 	push	acc
+   07A8 74 80              1944 	mov	a,#0x80
+   07AA C0 E0              1945 	push	acc
+   07AC 12s00r00           1946 	lcall	_printf
+   07AF 15 81              1947 	dec	sp
+   07B1 15 81              1948 	dec	sp
+   07B3 15 81              1949 	dec	sp
+                           1950 ;	user_interface.c:258: printf("3. HEX dump\r\n");
+   07B5 74r11              1951 	mov	a,#__str_35
+   07B7 C0 E0              1952 	push	acc
+   07B9 74s05              1953 	mov	a,#(__str_35 >> 8)
+   07BB C0 E0              1954 	push	acc
+   07BD 74 80              1955 	mov	a,#0x80
+   07BF C0 E0              1956 	push	acc
+   07C1 12s00r00           1957 	lcall	_printf
+   07C4 15 81              1958 	dec	sp
+   07C6 15 81              1959 	dec	sp
+   07C8 15 81              1960 	dec	sp
+                           1961 ;	user_interface.c:259: printf("4. I2c RESET\r\n");
+   07CA 74r1F              1962 	mov	a,#__str_36
+   07CC C0 E0              1963 	push	acc
+   07CE 74s05              1964 	mov	a,#(__str_36 >> 8)
+   07D0 C0 E0              1965 	push	acc
+   07D2 74 80              1966 	mov	a,#0x80
+   07D4 C0 E0              1967 	push	acc
+   07D6 12s00r00           1968 	lcall	_printf
+   07D9 15 81              1969 	dec	sp
+   07DB 15 81              1970 	dec	sp
+   07DD 15 81              1971 	dec	sp
+                           1972 ;	user_interface.c:260: printf("Enter Option: ");
+   07DF 74r47              1973 	mov	a,#__str_23
+   07E1 C0 E0              1974 	push	acc
+   07E3 74s03              1975 	mov	a,#(__str_23 >> 8)
+   07E5 C0 E0              1976 	push	acc
+   07E7 74 80              1977 	mov	a,#0x80
+   07E9 C0 E0              1978 	push	acc
+   07EB 12s00r00           1979 	lcall	_printf
+   07EE 15 81              1980 	dec	sp
+   07F0 15 81              1981 	dec	sp
+   07F2 15 81              1982 	dec	sp
+                           1983 ;	user_interface.c:261: Entered_option = getchar();
+   07F4 12s00r00           1984 	lcall	_getchar
+   07F7 AA 82              1985 	mov	r2,dpl
+                           1986 ;	user_interface.c:262: printf("\r\n");
+   07F9 C0 02              1987 	push	ar2
+   07FB 74r19              1988 	mov	a,#__str_1
+   07FD C0 E0              1989 	push	acc
+   07FF 74s00              1990 	mov	a,#(__str_1 >> 8)
+   0801 C0 E0              1991 	push	acc
+   0803 74 80              1992 	mov	a,#0x80
+   0805 C0 E0              1993 	push	acc
+   0807 12s00r00           1994 	lcall	_printf
+   080A 15 81              1995 	dec	sp
+   080C 15 81              1996 	dec	sp
+   080E 15 81              1997 	dec	sp
+   0810 D0 02              1998 	pop	ar2
+                           1999 ;	user_interface.c:263: switch(Entered_option)
+   0812 BA 30 01           2000 	cjne	r2,#0x30,00147$
+   0815 22                 2001 	ret
+   0816                    2002 00147$:
+   0816 BA 31 02           2003 	cjne	r2,#0x31,00148$
+   0819 80 15              2004 	sjmp	00102$
+   081B                    2005 00148$:
+   081B BA 32 03           2006 	cjne	r2,#0x32,00149$
+   081E 02s09r41           2007 	ljmp	00105$
+   0821                    2008 00149$:
+   0821 BA 33 03           2009 	cjne	r2,#0x33,00150$
+   0824 02s0Ar04           2010 	ljmp	00108$
+   0827                    2011 00150$:
+   0827 BA 34 03           2012 	cjne	r2,#0x34,00151$
+   082A 02s0Cr4D           2013 	ljmp	00122$
+   082D                    2014 00151$:
+                           2015 ;	user_interface.c:265: case '0':
+                           2016 ;	user_interface.c:266: return;
+   082D 02s0Cr68           2017 	ljmp	00123$
+                           2018 ;	user_interface.c:267: case '1':
+   0830                    2019 00102$:
+                           2020 ;	user_interface.c:269: printf("TO WRITE BYTE\r\n");
+   0830 74r2E              2021 	mov	a,#__str_37
+   0832 C0 E0              2022 	push	acc
+   0834 74s05              2023 	mov	a,#(__str_37 >> 8)
+   0836 C0 E0              2024 	push	acc
+   0838 74 80              2025 	mov	a,#0x80
+   083A C0 E0              2026 	push	acc
+   083C 12s00r00           2027 	lcall	_printf
+   083F 15 81              2028 	dec	sp
+   0841 15 81              2029 	dec	sp
+   0843 15 81              2030 	dec	sp
+                           2031 ;	user_interface.c:271: printf("\r\nENTER AN EEPROM ADDRESS between 0000 and 07ff: ");
+   0845 74r3E              2032 	mov	a,#__str_38
+   0847 C0 E0              2033 	push	acc
+   0849 74s05              2034 	mov	a,#(__str_38 >> 8)
+   084B C0 E0              2035 	push	acc
+   084D 74 80              2036 	mov	a,#0x80
+   084F C0 E0              2037 	push	acc
+   0851 12s00r00           2038 	lcall	_printf
+   0854 15 81              2039 	dec	sp
+   0856 15 81              2040 	dec	sp
+   0858 15 81              2041 	dec	sp
+                           2042 ;	user_interface.c:272: eeprom_address_int = hex2int(getHexString(hexStringAdd,4),4);
+   085A 90s00r06           2043 	mov	dptr,#_getHexString_PARM_2
+   085D 74 04              2044 	mov	a,#0x04
+   085F F0                 2045 	movx	@dptr,a
+   0860 90s00r1D           2046 	mov	dptr,#_I2C_user_interface_hexStringAdd_2_2
+   0863 75 F0 00           2047 	mov	b,#0x00
+   0866 12s01r58           2048 	lcall	_getHexString
+   0869 AA 82              2049 	mov	r2,dpl
+   086B AB 83              2050 	mov	r3,dph
+   086D AC F0              2051 	mov	r4,b
+   086F 90s00r00           2052 	mov	dptr,#_hex2int_PARM_2
+   0872 74 04              2053 	mov	a,#0x04
+   0874 F0                 2054 	movx	@dptr,a
+   0875 8A 82              2055 	mov	dpl,r2
+   0877 8B 83              2056 	mov	dph,r3
+   0879 8C F0              2057 	mov	b,r4
+   087B 12s00r00           2058 	lcall	_hex2int
+   087E AA 82              2059 	mov	r2,dpl
+   0880 AB 83              2060 	mov	r3,dph
+                           2061 ;	user_interface.c:273: if(eeprom_address_int > 0x7ff)
+   0882 C3                 2062 	clr	c
+   0883 74 FF              2063 	mov	a,#0xFF
+   0885 9A                 2064 	subb	a,r2
+   0886 74 07              2065 	mov	a,#0x07
+   0888 9B                 2066 	subb	a,r3
+   0889 50 18              2067 	jnc	00104$
+                           2068 ;	user_interface.c:275: printf("\r\nInvalid Address\r\n");
+   088B 74r70              2069 	mov	a,#__str_39
+   088D C0 E0              2070 	push	acc
+   088F 74s05              2071 	mov	a,#(__str_39 >> 8)
+   0891 C0 E0              2072 	push	acc
+   0893 74 80              2073 	mov	a,#0x80
+   0895 C0 E0              2074 	push	acc
+   0897 12s00r00           2075 	lcall	_printf
+   089A 15 81              2076 	dec	sp
+   089C 15 81              2077 	dec	sp
+   089E 15 81              2078 	dec	sp
+                           2079 ;	user_interface.c:276: break;
+   08A0 02s07r47           2080 	ljmp	00126$
+   08A3                    2081 00104$:
+                           2082 ;	user_interface.c:278: printf("\r\nENTER THE DATA TO BE WRITTEN BEWTWEEN 00 TO FF: ");
+   08A3 C0 02              2083 	push	ar2
+   08A5 C0 03              2084 	push	ar3
+   08A7 74r84              2085 	mov	a,#__str_40
+   08A9 C0 E0              2086 	push	acc
+   08AB 74s05              2087 	mov	a,#(__str_40 >> 8)
+   08AD C0 E0              2088 	push	acc
+   08AF 74 80              2089 	mov	a,#0x80
+   08B1 C0 E0              2090 	push	acc
+   08B3 12s00r00           2091 	lcall	_printf
+   08B6 15 81              2092 	dec	sp
+   08B8 15 81              2093 	dec	sp
+   08BA 15 81              2094 	dec	sp
+                           2095 ;	user_interface.c:279: data_entered_int = hex2int(getHexString(hexStringData,2),2);
+   08BC 90s00r06           2096 	mov	dptr,#_getHexString_PARM_2
+   08BF 74 02              2097 	mov	a,#0x02
+   08C1 F0                 2098 	movx	@dptr,a
+   08C2 90s00r21           2099 	mov	dptr,#_I2C_user_interface_hexStringData_2_2
+   08C5 75 F0 00           2100 	mov	b,#0x00
+   08C8 12s01r58           2101 	lcall	_getHexString
+   08CB AC 82              2102 	mov	r4,dpl
+   08CD AD 83              2103 	mov	r5,dph
+   08CF AE F0              2104 	mov	r6,b
+   08D1 90s00r00           2105 	mov	dptr,#_hex2int_PARM_2
+   08D4 74 02              2106 	mov	a,#0x02
+   08D6 F0                 2107 	movx	@dptr,a
+   08D7 8C 82              2108 	mov	dpl,r4
+   08D9 8D 83              2109 	mov	dph,r5
+   08DB 8E F0              2110 	mov	b,r6
+   08DD 12s00r00           2111 	lcall	_hex2int
+   08E0 AC 82              2112 	mov	r4,dpl
+   08E2 AD 83              2113 	mov	r5,dph
+   08E4 D0 03              2114 	pop	ar3
+   08E6 D0 02              2115 	pop	ar2
+                           2116 ;	user_interface.c:280: printf("\r\nTHE ENTERED ADDRESS %03x\r\n" , eeprom_address_int);
+   08E8 C0 02              2117 	push	ar2
+   08EA C0 03              2118 	push	ar3
+   08EC C0 04              2119 	push	ar4
+   08EE C0 05              2120 	push	ar5
+   08F0 C0 02              2121 	push	ar2
+   08F2 C0 03              2122 	push	ar3
+   08F4 74rB7              2123 	mov	a,#__str_41
+   08F6 C0 E0              2124 	push	acc
+   08F8 74s05              2125 	mov	a,#(__str_41 >> 8)
+   08FA C0 E0              2126 	push	acc
+   08FC 74 80              2127 	mov	a,#0x80
+   08FE C0 E0              2128 	push	acc
+   0900 12s00r00           2129 	lcall	_printf
+   0903 E5 81              2130 	mov	a,sp
+   0905 24 FB              2131 	add	a,#0xfb
+   0907 F5 81              2132 	mov	sp,a
+   0909 D0 05              2133 	pop	ar5
+   090B D0 04              2134 	pop	ar4
+                           2135 ;	user_interface.c:281: printf("\r\nTHE ENTERED DATA %02x\r\n" , data_entered_int);
+   090D C0 04              2136 	push	ar4
+   090F C0 05              2137 	push	ar5
+   0911 C0 04              2138 	push	ar4
+   0913 C0 05              2139 	push	ar5
+   0915 74rD4              2140 	mov	a,#__str_42
+   0917 C0 E0              2141 	push	acc
+   0919 74s05              2142 	mov	a,#(__str_42 >> 8)
+   091B C0 E0              2143 	push	acc
+   091D 74 80              2144 	mov	a,#0x80
+   091F C0 E0              2145 	push	acc
+   0921 12s00r00           2146 	lcall	_printf
+   0924 E5 81              2147 	mov	a,sp
+   0926 24 FB              2148 	add	a,#0xfb
+   0928 F5 81              2149 	mov	sp,a
+   092A D0 05              2150 	pop	ar5
+   092C D0 04              2151 	pop	ar4
+   092E D0 03              2152 	pop	ar3
+   0930 D0 02              2153 	pop	ar2
+                           2154 ;	user_interface.c:282: write_byte_to_eeprom(eeprom_address_int,data_entered_int);
+   0932 90s00r00           2155 	mov	dptr,#_write_byte_to_eeprom_PARM_2
+   0935 EC                 2156 	mov	a,r4
+   0936 F0                 2157 	movx	@dptr,a
+   0937 8A 82              2158 	mov	dpl,r2
+   0939 8B 83              2159 	mov	dph,r3
+   093B 12s00r00           2160 	lcall	_write_byte_to_eeprom
+                           2161 ;	user_interface.c:283: break;
+   093E 02s07r47           2162 	ljmp	00126$
+                           2163 ;	user_interface.c:285: case '2':
+   0941                    2164 00105$:
+                           2165 ;	user_interface.c:286: printf("TO READ BYTE\r\n");
+   0941 74rEE              2166 	mov	a,#__str_43
+   0943 C0 E0              2167 	push	acc
+   0945 74s05              2168 	mov	a,#(__str_43 >> 8)
+   0947 C0 E0              2169 	push	acc
+   0949 74 80              2170 	mov	a,#0x80
+   094B C0 E0              2171 	push	acc
+   094D 12s00r00           2172 	lcall	_printf
+   0950 15 81              2173 	dec	sp
+   0952 15 81              2174 	dec	sp
+   0954 15 81              2175 	dec	sp
+                           2176 ;	user_interface.c:287: printf("ENTER AN EEPROM ADDRESS between 0000 and 07ff: ");
+   0956 74rFD              2177 	mov	a,#__str_44
+   0958 C0 E0              2178 	push	acc
+   095A 74s05              2179 	mov	a,#(__str_44 >> 8)
+   095C C0 E0              2180 	push	acc
+   095E 74 80              2181 	mov	a,#0x80
+   0960 C0 E0              2182 	push	acc
+   0962 12s00r00           2183 	lcall	_printf
+   0965 15 81              2184 	dec	sp
+   0967 15 81              2185 	dec	sp
+   0969 15 81              2186 	dec	sp
+                           2187 ;	user_interface.c:288: eeprom_address_int = hex2int(getHexString(hexStringAdd,4),4);
+   096B 90s00r06           2188 	mov	dptr,#_getHexString_PARM_2
+   096E 74 04              2189 	mov	a,#0x04
+   0970 F0                 2190 	movx	@dptr,a
+   0971 90s00r1D           2191 	mov	dptr,#_I2C_user_interface_hexStringAdd_2_2
+   0974 75 F0 00           2192 	mov	b,#0x00
+   0977 12s01r58           2193 	lcall	_getHexString
+   097A AA 82              2194 	mov	r2,dpl
+   097C AB 83              2195 	mov	r3,dph
+   097E AC F0              2196 	mov	r4,b
+   0980 90s00r00           2197 	mov	dptr,#_hex2int_PARM_2
+   0983 74 04              2198 	mov	a,#0x04
+   0985 F0                 2199 	movx	@dptr,a
+   0986 8A 82              2200 	mov	dpl,r2
+   0988 8B 83              2201 	mov	dph,r3
+   098A 8C F0              2202 	mov	b,r4
+   098C 12s00r00           2203 	lcall	_hex2int
+   098F AA 82              2204 	mov	r2,dpl
+   0991 AB 83              2205 	mov	r3,dph
+                           2206 ;	user_interface.c:289: if(eeprom_address_int > 0x7ff)
+   0993 C3                 2207 	clr	c
+   0994 74 FF              2208 	mov	a,#0xFF
+   0996 9A                 2209 	subb	a,r2
+   0997 74 07              2210 	mov	a,#0x07
+   0999 9B                 2211 	subb	a,r3
+   099A 50 18              2212 	jnc	00107$
+                           2213 ;	user_interface.c:291: printf("\r\nInvalid Address\r\n");
+   099C 74r70              2214 	mov	a,#__str_39
+   099E C0 E0              2215 	push	acc
+   09A0 74s05              2216 	mov	a,#(__str_39 >> 8)
+   09A2 C0 E0              2217 	push	acc
+   09A4 74 80              2218 	mov	a,#0x80
+   09A6 C0 E0              2219 	push	acc
+   09A8 12s00r00           2220 	lcall	_printf
+   09AB 15 81              2221 	dec	sp
+   09AD 15 81              2222 	dec	sp
+   09AF 15 81              2223 	dec	sp
+                           2224 ;	user_interface.c:292: break;
+   09B1 02s07r47           2225 	ljmp	00126$
+   09B4                    2226 00107$:
+                           2227 ;	user_interface.c:294: printf("\r\nThe content of the address in the format AAA:DD is: ")  ;
+   09B4 C0 02              2228 	push	ar2
+   09B6 C0 03              2229 	push	ar3
+   09B8 74r2D              2230 	mov	a,#__str_45
+   09BA C0 E0              2231 	push	acc
+   09BC 74s06              2232 	mov	a,#(__str_45 >> 8)
+   09BE C0 E0              2233 	push	acc
+   09C0 74 80              2234 	mov	a,#0x80
+   09C2 C0 E0              2235 	push	acc
+   09C4 12s00r00           2236 	lcall	_printf
+   09C7 15 81              2237 	dec	sp
+   09C9 15 81              2238 	dec	sp
+   09CB 15 81              2239 	dec	sp
+   09CD D0 03              2240 	pop	ar3
+   09CF D0 02              2241 	pop	ar2
+                           2242 ;	user_interface.c:295: data_entered_int = read_byte_from_eeprom(eeprom_address_int);
+   09D1 8A 82              2243 	mov	dpl,r2
+   09D3 8B 83              2244 	mov	dph,r3
+   09D5 C0 02              2245 	push	ar2
+   09D7 C0 03              2246 	push	ar3
+   09D9 12s00r00           2247 	lcall	_read_byte_from_eeprom
+   09DC AC 82              2248 	mov	r4,dpl
+   09DE D0 03              2249 	pop	ar3
+   09E0 D0 02              2250 	pop	ar2
+   09E2 7D 00              2251 	mov	r5,#0x00
+                           2252 ;	user_interface.c:296: printf("%03x:%02x\r\n",eeprom_address_int,data_entered_int);
+   09E4 C0 04              2253 	push	ar4
+   09E6 C0 05              2254 	push	ar5
+   09E8 C0 02              2255 	push	ar2
+   09EA C0 03              2256 	push	ar3
+   09EC 74r64              2257 	mov	a,#__str_46
+   09EE C0 E0              2258 	push	acc
+   09F0 74s06              2259 	mov	a,#(__str_46 >> 8)
+   09F2 C0 E0              2260 	push	acc
+   09F4 74 80              2261 	mov	a,#0x80
+   09F6 C0 E0              2262 	push	acc
+   09F8 12s00r00           2263 	lcall	_printf
+   09FB E5 81              2264 	mov	a,sp
+   09FD 24 F9              2265 	add	a,#0xf9
+   09FF F5 81              2266 	mov	sp,a
+                           2267 ;	user_interface.c:297: break;
+   0A01 02s07r47           2268 	ljmp	00126$
+                           2269 ;	user_interface.c:299: case '3':
+   0A04                    2270 00108$:
+                           2271 ;	user_interface.c:300: printf("To HEX dump\r\n");
+   0A04 74r70              2272 	mov	a,#__str_47
+   0A06 C0 E0              2273 	push	acc
+   0A08 74s06              2274 	mov	a,#(__str_47 >> 8)
+   0A0A C0 E0              2275 	push	acc
+   0A0C 74 80              2276 	mov	a,#0x80
+   0A0E C0 E0              2277 	push	acc
+   0A10 12s00r00           2278 	lcall	_printf
+   0A13 15 81              2279 	dec	sp
+   0A15 15 81              2280 	dec	sp
+   0A17 15 81              2281 	dec	sp
+                           2282 ;	user_interface.c:301: printf("ENTER THE STARTING ADDRESS BETWEEN 0000 and 07ff: ");
+   0A19 74r7E              2283 	mov	a,#__str_48
+   0A1B C0 E0              2284 	push	acc
+   0A1D 74s06              2285 	mov	a,#(__str_48 >> 8)
+   0A1F C0 E0              2286 	push	acc
+   0A21 74 80              2287 	mov	a,#0x80
+   0A23 C0 E0              2288 	push	acc
+   0A25 12s00r00           2289 	lcall	_printf
+   0A28 15 81              2290 	dec	sp
+   0A2A 15 81              2291 	dec	sp
+   0A2C 15 81              2292 	dec	sp
+                           2293 ;	user_interface.c:302: start_addr_int = hex2int(getHexString(hexStringAdd,4),4);
+   0A2E 90s00r06           2294 	mov	dptr,#_getHexString_PARM_2
+   0A31 74 04              2295 	mov	a,#0x04
+   0A33 F0                 2296 	movx	@dptr,a
+   0A34 90s00r1D           2297 	mov	dptr,#_I2C_user_interface_hexStringAdd_2_2
+   0A37 75 F0 00           2298 	mov	b,#0x00
+   0A3A 12s01r58           2299 	lcall	_getHexString
+   0A3D AA 82              2300 	mov	r2,dpl
+   0A3F AB 83              2301 	mov	r3,dph
+   0A41 AC F0              2302 	mov	r4,b
+   0A43 90s00r00           2303 	mov	dptr,#_hex2int_PARM_2
+   0A46 74 04              2304 	mov	a,#0x04
+   0A48 F0                 2305 	movx	@dptr,a
+   0A49 8A 82              2306 	mov	dpl,r2
+   0A4B 8B 83              2307 	mov	dph,r3
+   0A4D 8C F0              2308 	mov	b,r4
+   0A4F 12s00r00           2309 	lcall	_hex2int
+   0A52 AA 82              2310 	mov	r2,dpl
+   0A54 AB 83              2311 	mov	r3,dph
+                           2312 ;	user_interface.c:303: if(start_addr_int > 0x7ff)
+   0A56 C3                 2313 	clr	c
+   0A57 74 FF              2314 	mov	a,#0xFF
+   0A59 9A                 2315 	subb	a,r2
+   0A5A 74 07              2316 	mov	a,#0x07
+   0A5C 9B                 2317 	subb	a,r3
+   0A5D 50 18              2318 	jnc	00110$
+                           2319 ;	user_interface.c:305: printf("\r\nInvalid Address\r\n");
+   0A5F 74r70              2320 	mov	a,#__str_39
+   0A61 C0 E0              2321 	push	acc
+   0A63 74s05              2322 	mov	a,#(__str_39 >> 8)
+   0A65 C0 E0              2323 	push	acc
+   0A67 74 80              2324 	mov	a,#0x80
+   0A69 C0 E0              2325 	push	acc
+   0A6B 12s00r00           2326 	lcall	_printf
+   0A6E 15 81              2327 	dec	sp
+   0A70 15 81              2328 	dec	sp
+   0A72 15 81              2329 	dec	sp
+                           2330 ;	user_interface.c:306: break;
+   0A74 02s07r47           2331 	ljmp	00126$
+   0A77                    2332 00110$:
+                           2333 ;	user_interface.c:308: printf("\r\nENTER THR END ADDRESS BETWEEN 0000 and 07ff: ");
+   0A77 C0 02              2334 	push	ar2
+   0A79 C0 03              2335 	push	ar3
+   0A7B 74rB1              2336 	mov	a,#__str_49
+   0A7D C0 E0              2337 	push	acc
+   0A7F 74s06              2338 	mov	a,#(__str_49 >> 8)
+   0A81 C0 E0              2339 	push	acc
+   0A83 74 80              2340 	mov	a,#0x80
+   0A85 C0 E0              2341 	push	acc
+   0A87 12s00r00           2342 	lcall	_printf
+   0A8A 15 81              2343 	dec	sp
+   0A8C 15 81              2344 	dec	sp
+   0A8E 15 81              2345 	dec	sp
+                           2346 ;	user_interface.c:309: end_addr_int = hex2int(getHexString(hexStringAdd,4),4);
+   0A90 90s00r06           2347 	mov	dptr,#_getHexString_PARM_2
+   0A93 74 04              2348 	mov	a,#0x04
+   0A95 F0                 2349 	movx	@dptr,a
+   0A96 90s00r1D           2350 	mov	dptr,#_I2C_user_interface_hexStringAdd_2_2
+   0A99 75 F0 00           2351 	mov	b,#0x00
+   0A9C 12s01r58           2352 	lcall	_getHexString
+   0A9F AC 82              2353 	mov	r4,dpl
+   0AA1 AD 83              2354 	mov	r5,dph
+   0AA3 AE F0              2355 	mov	r6,b
+   0AA5 90s00r00           2356 	mov	dptr,#_hex2int_PARM_2
+   0AA8 74 04              2357 	mov	a,#0x04
+   0AAA F0                 2358 	movx	@dptr,a
+   0AAB 8C 82              2359 	mov	dpl,r4
+   0AAD 8D 83              2360 	mov	dph,r5
+   0AAF 8E F0              2361 	mov	b,r6
+   0AB1 12s00r00           2362 	lcall	_hex2int
+   0AB4 AC 82              2363 	mov	r4,dpl
+   0AB6 AD 83              2364 	mov	r5,dph
+   0AB8 D0 03              2365 	pop	ar3
+   0ABA D0 02              2366 	pop	ar2
+                           2367 ;	user_interface.c:310: if(end_addr_int > 0x7ff)
+   0ABC C3                 2368 	clr	c
+   0ABD 74 FF              2369 	mov	a,#0xFF
+   0ABF 9C                 2370 	subb	a,r4
+   0AC0 74 07              2371 	mov	a,#0x07
+   0AC2 9D                 2372 	subb	a,r5
+   0AC3 50 18              2373 	jnc	00112$
+                           2374 ;	user_interface.c:312: printf("\r\nInvalid Address\r\n");
+   0AC5 74r70              2375 	mov	a,#__str_39
+   0AC7 C0 E0              2376 	push	acc
+   0AC9 74s05              2377 	mov	a,#(__str_39 >> 8)
+   0ACB C0 E0              2378 	push	acc
+   0ACD 74 80              2379 	mov	a,#0x80
+   0ACF C0 E0              2380 	push	acc
+   0AD1 12s00r00           2381 	lcall	_printf
+   0AD4 15 81              2382 	dec	sp
+   0AD6 15 81              2383 	dec	sp
+   0AD8 15 81              2384 	dec	sp
+                           2385 ;	user_interface.c:313: break;
+   0ADA 02s07r47           2386 	ljmp	00126$
+   0ADD                    2387 00112$:
+                           2388 ;	user_interface.c:315: if(end_addr_int < start_addr_int)
+   0ADD C3                 2389 	clr	c
+   0ADE EC                 2390 	mov	a,r4
+   0ADF 9A                 2391 	subb	a,r2
+   0AE0 ED                 2392 	mov	a,r5
+   0AE1 9B                 2393 	subb	a,r3
+   0AE2 50 18              2394 	jnc	00114$
+                           2395 ;	user_interface.c:317: printf("\r\nEnd Address should be greater than Start Address\r\n");
+   0AE4 74rE1              2396 	mov	a,#__str_50
+   0AE6 C0 E0              2397 	push	acc
+   0AE8 74s06              2398 	mov	a,#(__str_50 >> 8)
+   0AEA C0 E0              2399 	push	acc
+   0AEC 74 80              2400 	mov	a,#0x80
+   0AEE C0 E0              2401 	push	acc
+   0AF0 12s00r00           2402 	lcall	_printf
+   0AF3 15 81              2403 	dec	sp
+   0AF5 15 81              2404 	dec	sp
+   0AF7 15 81              2405 	dec	sp
+                           2406 ;	user_interface.c:318: break;
+   0AF9 02s07r47           2407 	ljmp	00126$
+   0AFC                    2408 00114$:
+                           2409 ;	user_interface.c:320: range_indiff = end_addr_int - start_addr_int + 1;
+   0AFC EC                 2410 	mov	a,r4
+   0AFD C3                 2411 	clr	c
+   0AFE 9A                 2412 	subb	a,r2
+   0AFF FE                 2413 	mov	r6,a
+   0B00 ED                 2414 	mov	a,r5
+   0B01 9B                 2415 	subb	a,r3
+   0B02 FF                 2416 	mov	r7,a
+   0B03 0E                 2417 	inc	r6
+   0B04 BE 00 01           2418 	cjne	r6,#0x00,00157$
+   0B07 0F                 2419 	inc	r7
+   0B08                    2420 00157$:
+                           2421 ;	user_interface.c:321: printf("\r\nThe given range of address is %03x to %03x.", start_addr_int,end_addr_int);
+   0B08 C0 02              2422 	push	ar2
+   0B0A C0 03              2423 	push	ar3
+   0B0C C0 06              2424 	push	ar6
+   0B0E C0 07              2425 	push	ar7
+   0B10 C0 04              2426 	push	ar4
+   0B12 C0 05              2427 	push	ar5
+   0B14 C0 02              2428 	push	ar2
+   0B16 C0 03              2429 	push	ar3
+   0B18 74r16              2430 	mov	a,#__str_51
+   0B1A C0 E0              2431 	push	acc
+   0B1C 74s07              2432 	mov	a,#(__str_51 >> 8)
+   0B1E C0 E0              2433 	push	acc
+   0B20 74 80              2434 	mov	a,#0x80
+   0B22 C0 E0              2435 	push	acc
+   0B24 12s00r00           2436 	lcall	_printf
+   0B27 E5 81              2437 	mov	a,sp
+   0B29 24 F9              2438 	add	a,#0xf9
+   0B2B F5 81              2439 	mov	sp,a
+                           2440 ;	user_interface.c:323: printf("\r\nHEX DUMP\r\n");
+   0B2D 74r44              2441 	mov	a,#__str_52
+   0B2F C0 E0              2442 	push	acc
+   0B31 74s07              2443 	mov	a,#(__str_52 >> 8)
+   0B33 C0 E0              2444 	push	acc
+   0B35 74 80              2445 	mov	a,#0x80
+   0B37 C0 E0              2446 	push	acc
+   0B39 12s00r00           2447 	lcall	_printf
+   0B3C 15 81              2448 	dec	sp
+   0B3E 15 81              2449 	dec	sp
+   0B40 15 81              2450 	dec	sp
+   0B42 D0 07              2451 	pop	ar7
+   0B44 D0 06              2452 	pop	ar6
+   0B46 D0 03              2453 	pop	ar3
+   0B48 D0 02              2454 	pop	ar2
+                           2455 ;	user_interface.c:324: i=0; // iteration variable for keeping count of buffer address position, initialised as 0
+   0B4A 90s00r1B           2456 	mov	dptr,#_I2C_user_interface_i_2_2
+   0B4D E4                 2457 	clr	a
+   0B4E F0                 2458 	movx	@dptr,a
+   0B4F A3                 2459 	inc	dptr
+   0B50 F0                 2460 	movx	@dptr,a
+                           2461 ;	user_interface.c:326: while(i < range_indiff) // while the buffer address iteration variable position is less than the size of the buffer 0
+   0B51                    2462 00119$:
+   0B51 90s00r1B           2463 	mov	dptr,#_I2C_user_interface_i_2_2
+   0B54 E0                 2464 	movx	a,@dptr
+   0B55 FC                 2465 	mov	r4,a
+   0B56 A3                 2466 	inc	dptr
+   0B57 E0                 2467 	movx	a,@dptr
+   0B58 FD                 2468 	mov	r5,a
+   0B59 C3                 2469 	clr	c
+   0B5A EC                 2470 	mov	a,r4
+   0B5B 9E                 2471 	subb	a,r6
+   0B5C ED                 2472 	mov	a,r5
+   0B5D 9F                 2473 	subb	a,r7
+   0B5E 40 03              2474 	jc	00158$
+   0B60 02s07r47           2475 	ljmp	00126$
+   0B63                    2476 00158$:
+                           2477 ;	user_interface.c:328: printf("\r\n%03x: ", start_addr_int+i); // prints address of buffer 0
+   0B63 EC                 2478 	mov	a,r4
+   0B64 2A                 2479 	add	a,r2
+   0B65 FC                 2480 	mov	r4,a
+   0B66 ED                 2481 	mov	a,r5
+   0B67 3B                 2482 	addc	a,r3
+   0B68 FD                 2483 	mov	r5,a
+   0B69 C0 02              2484 	push	ar2
+   0B6B C0 03              2485 	push	ar3
+   0B6D C0 06              2486 	push	ar6
+   0B6F C0 07              2487 	push	ar7
+   0B71 C0 04              2488 	push	ar4
+   0B73 C0 05              2489 	push	ar5
+   0B75 74r51              2490 	mov	a,#__str_53
+   0B77 C0 E0              2491 	push	acc
+   0B79 74s07              2492 	mov	a,#(__str_53 >> 8)
+   0B7B C0 E0              2493 	push	acc
+   0B7D 74 80              2494 	mov	a,#0x80
+   0B7F C0 E0              2495 	push	acc
+   0B81 12s00r00           2496 	lcall	_printf
+   0B84 E5 81              2497 	mov	a,sp
+   0B86 24 FB              2498 	add	a,#0xfb
+   0B88 F5 81              2499 	mov	sp,a
+   0B8A D0 07              2500 	pop	ar7
+   0B8C D0 06              2501 	pop	ar6
+   0B8E D0 03              2502 	pop	ar3
+   0B90 D0 02              2503 	pop	ar2
+                           2504 ;	user_interface.c:331: while(j < 16 && (i+j < range_indiff) )
+   0B92 7C 00              2505 	mov	r4,#0x00
+   0B94 7D 00              2506 	mov	r5,#0x00
+   0B96                    2507 00116$:
+   0B96 C3                 2508 	clr	c
+   0B97 EC                 2509 	mov	a,r4
+   0B98 94 10              2510 	subb	a,#0x10
+   0B9A ED                 2511 	mov	a,r5
+   0B9B 94 00              2512 	subb	a,#0x00
+   0B9D 50 6C              2513 	jnc	00118$
+   0B9F C0 02              2514 	push	ar2
+   0BA1 C0 03              2515 	push	ar3
+   0BA3 90s00r1B           2516 	mov	dptr,#_I2C_user_interface_i_2_2
+   0BA6 E0                 2517 	movx	a,@dptr
+   0BA7 F8                 2518 	mov	r0,a
+   0BA8 A3                 2519 	inc	dptr
+   0BA9 E0                 2520 	movx	a,@dptr
+   0BAA F9                 2521 	mov	r1,a
+   0BAB EC                 2522 	mov	a,r4
+   0BAC 28                 2523 	add	a,r0
+   0BAD FA                 2524 	mov	r2,a
+   0BAE ED                 2525 	mov	a,r5
+   0BAF 39                 2526 	addc	a,r1
+   0BB0 FB                 2527 	mov	r3,a
+   0BB1 C3                 2528 	clr	c
+   0BB2 EA                 2529 	mov	a,r2
+   0BB3 9E                 2530 	subb	a,r6
+   0BB4 EB                 2531 	mov	a,r3
+   0BB5 9F                 2532 	subb	a,r7
+   0BB6 D0 03              2533 	pop	ar3
+   0BB8 D0 02              2534 	pop	ar2
+   0BBA 50 4F              2535 	jnc	00118$
+                           2536 ;	user_interface.c:333: printf("%02x ",read_byte_from_eeprom((start_addr_int + i) + j)); // prints the data present in hex
+   0BBC E8                 2537 	mov	a,r0
+   0BBD 2A                 2538 	add	a,r2
+   0BBE F8                 2539 	mov	r0,a
+   0BBF E9                 2540 	mov	a,r1
+   0BC0 3B                 2541 	addc	a,r3
+   0BC1 F9                 2542 	mov	r1,a
+   0BC2 EC                 2543 	mov	a,r4
+   0BC3 28                 2544 	add	a,r0
+   0BC4 F8                 2545 	mov	r0,a
+   0BC5 ED                 2546 	mov	a,r5
+   0BC6 39                 2547 	addc	a,r1
+   0BC7 F9                 2548 	mov	r1,a
+   0BC8 88 82              2549 	mov	dpl,r0
+   0BCA 89 83              2550 	mov	dph,r1
+   0BCC C0 02              2551 	push	ar2
+   0BCE C0 03              2552 	push	ar3
+   0BD0 C0 04              2553 	push	ar4
+   0BD2 C0 05              2554 	push	ar5
+   0BD4 C0 06              2555 	push	ar6
+   0BD6 C0 07              2556 	push	ar7
+   0BD8 12s00r00           2557 	lcall	_read_byte_from_eeprom
+   0BDB A8 82              2558 	mov	r0,dpl
+   0BDD 79 00              2559 	mov	r1,#0x00
+   0BDF C0 00              2560 	push	ar0
+   0BE1 C0 01              2561 	push	ar1
+   0BE3 74r5A              2562 	mov	a,#__str_54
+   0BE5 C0 E0              2563 	push	acc
+   0BE7 74s07              2564 	mov	a,#(__str_54 >> 8)
+   0BE9 C0 E0              2565 	push	acc
+   0BEB 74 80              2566 	mov	a,#0x80
+   0BED C0 E0              2567 	push	acc
+   0BEF 12s00r00           2568 	lcall	_printf
+   0BF2 E5 81              2569 	mov	a,sp
+   0BF4 24 FB              2570 	add	a,#0xfb
+   0BF6 F5 81              2571 	mov	sp,a
+   0BF8 D0 07              2572 	pop	ar7
+   0BFA D0 06              2573 	pop	ar6
+   0BFC D0 05              2574 	pop	ar5
+   0BFE D0 04              2575 	pop	ar4
+   0C00 D0 03              2576 	pop	ar3
+   0C02 D0 02              2577 	pop	ar2
+                           2578 ;	user_interface.c:334: j++;// increment data
+   0C04 0C                 2579 	inc	r4
+   0C05 BC 00 8E           2580 	cjne	r4,#0x00,00116$
+   0C08 0D                 2581 	inc	r5
+   0C09 80 8B              2582 	sjmp	00116$
+   0C0B                    2583 00118$:
+                           2584 ;	user_interface.c:336: printf("\r\n");
+   0C0B C0 02              2585 	push	ar2
+   0C0D C0 03              2586 	push	ar3
+   0C0F C0 04              2587 	push	ar4
+   0C11 C0 05              2588 	push	ar5
+   0C13 C0 06              2589 	push	ar6
+   0C15 C0 07              2590 	push	ar7
+   0C17 74r19              2591 	mov	a,#__str_1
+   0C19 C0 E0              2592 	push	acc
+   0C1B 74s00              2593 	mov	a,#(__str_1 >> 8)
+   0C1D C0 E0              2594 	push	acc
+   0C1F 74 80              2595 	mov	a,#0x80
+   0C21 C0 E0              2596 	push	acc
+   0C23 12s00r00           2597 	lcall	_printf
+   0C26 15 81              2598 	dec	sp
+   0C28 15 81              2599 	dec	sp
+   0C2A 15 81              2600 	dec	sp
+   0C2C D0 07              2601 	pop	ar7
+   0C2E D0 06              2602 	pop	ar6
+   0C30 D0 05              2603 	pop	ar5
+   0C32 D0 04              2604 	pop	ar4
+   0C34 D0 03              2605 	pop	ar3
+   0C36 D0 02              2606 	pop	ar2
+                           2607 ;	user_interface.c:338: i = i + j;//
+   0C38 90s00r1B           2608 	mov	dptr,#_I2C_user_interface_i_2_2
+   0C3B E0                 2609 	movx	a,@dptr
+   0C3C F8                 2610 	mov	r0,a
+   0C3D A3                 2611 	inc	dptr
+   0C3E E0                 2612 	movx	a,@dptr
+   0C3F F9                 2613 	mov	r1,a
+   0C40 90s00r1B           2614 	mov	dptr,#_I2C_user_interface_i_2_2
+   0C43 EC                 2615 	mov	a,r4
+   0C44 28                 2616 	add	a,r0
+   0C45 F0                 2617 	movx	@dptr,a
+   0C46 ED                 2618 	mov	a,r5
+   0C47 39                 2619 	addc	a,r1
+   0C48 A3                 2620 	inc	dptr
+   0C49 F0                 2621 	movx	@dptr,a
+   0C4A 02s0Br51           2622 	ljmp	00119$
+                           2623 ;	user_interface.c:343: case '4':
+   0C4D                    2624 00122$:
+                           2625 ;	user_interface.c:344: printf("I2c software reset");
+   0C4D 74r60              2626 	mov	a,#__str_55
+   0C4F C0 E0              2627 	push	acc
+   0C51 74s07              2628 	mov	a,#(__str_55 >> 8)
+   0C53 C0 E0              2629 	push	acc
+   0C55 74 80              2630 	mov	a,#0x80
+   0C57 C0 E0              2631 	push	acc
+   0C59 12s00r00           2632 	lcall	_printf
+   0C5C 15 81              2633 	dec	sp
+   0C5E 15 81              2634 	dec	sp
+   0C60 15 81              2635 	dec	sp
+                           2636 ;	user_interface.c:345: reset_eeprom();
+   0C62 12s00r00           2637 	lcall	_reset_eeprom
+                           2638 ;	user_interface.c:346: break;
+   0C65 02s07r47           2639 	ljmp	00126$
+                           2640 ;	user_interface.c:347: default:
+   0C68                    2641 00123$:
+                           2642 ;	user_interface.c:348: printf("Invalid Option\r\n");
+   0C68 74r73              2643 	mov	a,#__str_56
+   0C6A C0 E0              2644 	push	acc
+   0C6C 74s07              2645 	mov	a,#(__str_56 >> 8)
+   0C6E C0 E0              2646 	push	acc
+   0C70 74 80              2647 	mov	a,#0x80
+   0C72 C0 E0              2648 	push	acc
+   0C74 12s00r00           2649 	lcall	_printf
+   0C77 15 81              2650 	dec	sp
+   0C79 15 81              2651 	dec	sp
+   0C7B 15 81              2652 	dec	sp
+                           2653 ;	user_interface.c:350: }
+   0C7D 02s07r47           2654 	ljmp	00126$
+                           2655 ;------------------------------------------------------------
+                           2656 ;Allocation info for local variables in function 'clock_user_interface'
+                           2657 ;------------------------------------------------------------
+                           2658 ;Entered_option            Allocated with name '_clock_user_interface_Entered_option_2_2'
+                           2659 ;------------------------------------------------------------
+                           2660 ;	user_interface.c:354: void clock_user_interface()
+                           2661 ;	-----------------------------------------
+                           2662 ;	 function clock_user_interface
+                           2663 ;	-----------------------------------------
+   0C80                    2664 _clock_user_interface:
+                           2665 ;	user_interface.c:356: while(1)
+   0C80                    2666 00108$:
+                           2667 ;	user_interface.c:359: printf("\r\n ENTER ANY ONE OF THE FOLLOWING OPTIONS: \r\n");
+   0C80 74rAF              2668 	mov	a,#__str_11
+   0C82 C0 E0              2669 	push	acc
+   0C84 74s01              2670 	mov	a,#(__str_11 >> 8)
+   0C86 C0 E0              2671 	push	acc
+   0C88 74 80              2672 	mov	a,#0x80
+   0C8A C0 E0              2673 	push	acc
+   0C8C 12s00r00           2674 	lcall	_printf
+   0C8F 15 81              2675 	dec	sp
+   0C91 15 81              2676 	dec	sp
+   0C93 15 81              2677 	dec	sp
+                           2678 ;	user_interface.c:360: printf("0. EXIT\r\n");
+   0C95 74rDD              2679 	mov	a,#__str_12
+   0C97 C0 E0              2680 	push	acc
+   0C99 74s01              2681 	mov	a,#(__str_12 >> 8)
+   0C9B C0 E0              2682 	push	acc
+   0C9D 74 80              2683 	mov	a,#0x80
+   0C9F C0 E0              2684 	push	acc
+   0CA1 12s00r00           2685 	lcall	_printf
+   0CA4 15 81              2686 	dec	sp
+   0CA6 15 81              2687 	dec	sp
+   0CA8 15 81              2688 	dec	sp
+                           2689 ;	user_interface.c:361: printf("1. RESET CLOCK\r\n");
+   0CAA 74r84              2690 	mov	a,#__str_57
+   0CAC C0 E0              2691 	push	acc
+   0CAE 74s07              2692 	mov	a,#(__str_57 >> 8)
+   0CB0 C0 E0              2693 	push	acc
+   0CB2 74 80              2694 	mov	a,#0x80
+   0CB4 C0 E0              2695 	push	acc
+   0CB6 12s00r00           2696 	lcall	_printf
+   0CB9 15 81              2697 	dec	sp
+   0CBB 15 81              2698 	dec	sp
+   0CBD 15 81              2699 	dec	sp
+                           2700 ;	user_interface.c:362: printf("2. RESTART CLOCK \r\n");
+   0CBF 74r95              2701 	mov	a,#__str_58
+   0CC1 C0 E0              2702 	push	acc
+   0CC3 74s07              2703 	mov	a,#(__str_58 >> 8)
+   0CC5 C0 E0              2704 	push	acc
+   0CC7 74 80              2705 	mov	a,#0x80
+   0CC9 C0 E0              2706 	push	acc
+   0CCB 12s00r00           2707 	lcall	_printf
+   0CCE 15 81              2708 	dec	sp
+   0CD0 15 81              2709 	dec	sp
+   0CD2 15 81              2710 	dec	sp
+                           2711 ;	user_interface.c:363: printf("3. STOP CLOCK \r\n");
+   0CD4 74rA9              2712 	mov	a,#__str_59
+   0CD6 C0 E0              2713 	push	acc
+   0CD8 74s07              2714 	mov	a,#(__str_59 >> 8)
+   0CDA C0 E0              2715 	push	acc
+   0CDC 74 80              2716 	mov	a,#0x80
+   0CDE C0 E0              2717 	push	acc
+   0CE0 12s00r00           2718 	lcall	_printf
+   0CE3 15 81              2719 	dec	sp
+   0CE5 15 81              2720 	dec	sp
+   0CE7 15 81              2721 	dec	sp
+                           2722 ;	user_interface.c:364: Entered_option = getchar();
+   0CE9 12s00r00           2723 	lcall	_getchar
+   0CEC AA 82              2724 	mov	r2,dpl
+                           2725 ;	user_interface.c:365: printf("\r\n");
+   0CEE C0 02              2726 	push	ar2
+   0CF0 74r19              2727 	mov	a,#__str_1
+   0CF2 C0 E0              2728 	push	acc
+   0CF4 74s00              2729 	mov	a,#(__str_1 >> 8)
+   0CF6 C0 E0              2730 	push	acc
+   0CF8 74 80              2731 	mov	a,#0x80
+   0CFA C0 E0              2732 	push	acc
+   0CFC 12s00r00           2733 	lcall	_printf
+   0CFF 15 81              2734 	dec	sp
+   0D01 15 81              2735 	dec	sp
+   0D03 15 81              2736 	dec	sp
+   0D05 D0 02              2737 	pop	ar2
+                           2738 ;	user_interface.c:366: switch(Entered_option)
+   0D07 BA 30 02           2739 	cjne	r2,#0x30,00117$
+   0D0A 80 0F              2740 	sjmp	00101$
+   0D0C                    2741 00117$:
+   0D0C BA 31 02           2742 	cjne	r2,#0x31,00118$
+   0D0F 80 0B              2743 	sjmp	00102$
+   0D11                    2744 00118$:
+   0D11 BA 32 02           2745 	cjne	r2,#0x32,00119$
+   0D14 80 0C              2746 	sjmp	00103$
+   0D16                    2747 00119$:
+                           2748 ;	user_interface.c:368: case '0':
+   0D16 BA 33 15           2749 	cjne	r2,#0x33,00105$
+   0D19 80 0D              2750 	sjmp	00104$
+   0D1B                    2751 00101$:
+                           2752 ;	user_interface.c:369: return;
+                           2753 ;	user_interface.c:370: case '1':
+   0D1B 22                 2754 	ret
+   0D1C                    2755 00102$:
+                           2756 ;	user_interface.c:371: reset_clock();
+   0D1C 12s00r00           2757 	lcall	_reset_clock
+                           2758 ;	user_interface.c:372: break;
+   0D1F 02s0Cr80           2759 	ljmp	00108$
+                           2760 ;	user_interface.c:373: case '2':
+   0D22                    2761 00103$:
+                           2762 ;	user_interface.c:374: restart_clock();
+   0D22 12s00r00           2763 	lcall	_restart_clock
+                           2764 ;	user_interface.c:375: break;
+   0D25 02s0Cr80           2765 	ljmp	00108$
+                           2766 ;	user_interface.c:376: case '3':
+   0D28                    2767 00104$:
+                           2768 ;	user_interface.c:377: stop_clock();
+   0D28 12s00r00           2769 	lcall	_stop_clock
+                           2770 ;	user_interface.c:378: break;
+   0D2B 02s0Cr80           2771 	ljmp	00108$
+                           2772 ;	user_interface.c:379: default:
+   0D2E                    2773 00105$:
+                           2774 ;	user_interface.c:380: printf("INVALID OPTION");
+   0D2E 74rBA              2775 	mov	a,#__str_60
+   0D30 C0 E0              2776 	push	acc
+   0D32 74s07              2777 	mov	a,#(__str_60 >> 8)
+   0D34 C0 E0              2778 	push	acc
+   0D36 74 80              2779 	mov	a,#0x80
+   0D38 C0 E0              2780 	push	acc
+   0D3A 12s00r00           2781 	lcall	_printf
+   0D3D 15 81              2782 	dec	sp
+   0D3F 15 81              2783 	dec	sp
+   0D41 15 81              2784 	dec	sp
+                           2785 ;	user_interface.c:382: }
+   0D43 02s0Cr80           2786 	ljmp	00108$
+                           2787 ;------------------------------------------------------------
+                           2788 ;Allocation info for local variables in function 'user_interface'
+                           2789 ;------------------------------------------------------------
+                           2790 ;Entered_option            Allocated with name '_user_interface_Entered_option_1_1'
+                           2791 ;------------------------------------------------------------
+                           2792 ;	user_interface.c:385: void user_interface()
+                           2793 ;	-----------------------------------------
+                           2794 ;	 function user_interface
+                           2795 ;	-----------------------------------------
+   0D46                    2796 _user_interface:
+                           2797 ;	user_interface.c:388: printf("\r\n ENTER ANY ONE OF THE FOLLOWING OPTIONS: \r\n");
+   0D46 74rAF              2798 	mov	a,#__str_11
+   0D48 C0 E0              2799 	push	acc
+   0D4A 74s01              2800 	mov	a,#(__str_11 >> 8)
+   0D4C C0 E0              2801 	push	acc
+   0D4E 74 80              2802 	mov	a,#0x80
+   0D50 C0 E0              2803 	push	acc
+   0D52 12s00r00           2804 	lcall	_printf
+   0D55 15 81              2805 	dec	sp
+   0D57 15 81              2806 	dec	sp
+   0D59 15 81              2807 	dec	sp
+                           2808 ;	user_interface.c:389: printf("1. LCD demo \r\n");
+   0D5B 74rC9              2809 	mov	a,#__str_61
+   0D5D C0 E0              2810 	push	acc
+   0D5F 74s07              2811 	mov	a,#(__str_61 >> 8)
+   0D61 C0 E0              2812 	push	acc
+   0D63 74 80              2813 	mov	a,#0x80
+   0D65 C0 E0              2814 	push	acc
+   0D67 12s00r00           2815 	lcall	_printf
+   0D6A 15 81              2816 	dec	sp
+   0D6C 15 81              2817 	dec	sp
+   0D6E 15 81              2818 	dec	sp
+                           2819 ;	user_interface.c:390: printf("2. I2C demo \r\n");
+   0D70 74rD8              2820 	mov	a,#__str_62
+   0D72 C0 E0              2821 	push	acc
+   0D74 74s07              2822 	mov	a,#(__str_62 >> 8)
+   0D76 C0 E0              2823 	push	acc
+   0D78 74 80              2824 	mov	a,#0x80
+   0D7A C0 E0              2825 	push	acc
+   0D7C 12s00r00           2826 	lcall	_printf
+   0D7F 15 81              2827 	dec	sp
+   0D81 15 81              2828 	dec	sp
+   0D83 15 81              2829 	dec	sp
+                           2830 ;	user_interface.c:391: printf("3. Clock menu\r\n");
+   0D85 74rE7              2831 	mov	a,#__str_63
+   0D87 C0 E0              2832 	push	acc
+   0D89 74s07              2833 	mov	a,#(__str_63 >> 8)
+   0D8B C0 E0              2834 	push	acc
+   0D8D 74 80              2835 	mov	a,#0x80
+   0D8F C0 E0              2836 	push	acc
+   0D91 12s00r00           2837 	lcall	_printf
+   0D94 15 81              2838 	dec	sp
+   0D96 15 81              2839 	dec	sp
+   0D98 15 81              2840 	dec	sp
+                           2841 ;	user_interface.c:392: printf("Enter Option: ");
+   0D9A 74r47              2842 	mov	a,#__str_23
+   0D9C C0 E0              2843 	push	acc
+   0D9E 74s03              2844 	mov	a,#(__str_23 >> 8)
+   0DA0 C0 E0              2845 	push	acc
+   0DA2 74 80              2846 	mov	a,#0x80
+   0DA4 C0 E0              2847 	push	acc
+   0DA6 12s00r00           2848 	lcall	_printf
+   0DA9 15 81              2849 	dec	sp
+   0DAB 15 81              2850 	dec	sp
+   0DAD 15 81              2851 	dec	sp
+                           2852 ;	user_interface.c:394: Entered_option = getchar();
+   0DAF 12s00r00           2853 	lcall	_getchar
+   0DB2 AA 82              2854 	mov	r2,dpl
+                           2855 ;	user_interface.c:395: printf("\r\n");
+   0DB4 C0 02              2856 	push	ar2
+   0DB6 74r19              2857 	mov	a,#__str_1
+   0DB8 C0 E0              2858 	push	acc
+   0DBA 74s00              2859 	mov	a,#(__str_1 >> 8)
+   0DBC C0 E0              2860 	push	acc
+   0DBE 74 80              2861 	mov	a,#0x80
+   0DC0 C0 E0              2862 	push	acc
+   0DC2 12s00r00           2863 	lcall	_printf
+   0DC5 15 81              2864 	dec	sp
+   0DC7 15 81              2865 	dec	sp
+   0DC9 15 81              2866 	dec	sp
+   0DCB D0 02              2867 	pop	ar2
+                           2868 ;	user_interface.c:397: switch(Entered_option)
+   0DCD BA 31 02           2869 	cjne	r2,#0x31,00111$
+   0DD0 80 0A              2870 	sjmp	00101$
+   0DD2                    2871 00111$:
+   0DD2 BA 32 02           2872 	cjne	r2,#0x32,00112$
+   0DD5 80 08              2873 	sjmp	00102$
+   0DD7                    2874 00112$:
+                           2875 ;	user_interface.c:399: case '1':
+   0DD7 BA 33 0B           2876 	cjne	r2,#0x33,00104$
+   0DDA 80 06              2877 	sjmp	00103$
+   0DDC                    2878 00101$:
+                           2879 ;	user_interface.c:400: lcd_user_interface();
+                           2880 ;	user_interface.c:401: break;
+                           2881 ;	user_interface.c:402: case '2':
+   0DDC 02s04rD3           2882 	ljmp	_lcd_user_interface
+   0DDF                    2883 00102$:
+                           2884 ;	user_interface.c:403: I2C_user_interface();
+   0DDF 12s07r47           2885 	lcall	_I2C_user_interface
+                           2886 ;	user_interface.c:404: case '3':
+   0DE2                    2887 00103$:
+                           2888 ;	user_interface.c:405: clock_user_interface();
+   0DE2 12s0Cr80           2889 	lcall	_clock_user_interface
+                           2890 ;	user_interface.c:406: default:
+   0DE5                    2891 00104$:
+                           2892 ;	user_interface.c:407: printf("Invalid Option.\r\n");
+   0DE5 74rF7              2893 	mov	a,#__str_64
+   0DE7 C0 E0              2894 	push	acc
+   0DE9 74s07              2895 	mov	a,#(__str_64 >> 8)
+   0DEB C0 E0              2896 	push	acc
+   0DED 74 80              2897 	mov	a,#0x80
+   0DEF C0 E0              2898 	push	acc
+   0DF1 12s00r00           2899 	lcall	_printf
+   0DF4 15 81              2900 	dec	sp
+   0DF6 15 81              2901 	dec	sp
+   0DF8 15 81              2902 	dec	sp
+                           2903 ;	user_interface.c:409: }
+   0DFA 22                 2904 	ret
+                           2905 	.area CSEG    (CODE)
+                           2906 	.area CONST   (CODE)
+   0000                    2907 __str_0:
+   0000 0D                 2908 	.db 0x0D
+   0001 0A                 2909 	.db 0x0A
+   0002 45 6E 74 65 72 20  2910 	.ascii "Enter  a valid number."
+        20 61 20 76 61 6C
+        69 64 20 6E 75 6D
+        62 65 72 2E
+   0018 00                 2911 	.db 0x00
+   0019                    2912 __str_1:
+   0019 0D                 2913 	.db 0x0D
+   001A 0A                 2914 	.db 0x0A
+   001B 00                 2915 	.db 0x00
+   001C                    2916 __str_2:
+   001C 45 6E 74 65 72 20  2917 	.ascii "Enter 7 values corresponding to each row of 5x7 mattrix"
+        37 20 76 61 6C 75
+        65 73 20 63 6F 72
+        72 65 73 70 6F 6E
+        64 69 6E 67 20 74
+        6F 20 65 61 63 68
+        20 72 6F 77 20 6F
+        66 20 35 78 37 20
+        6D 61 74 74 72 69
+        78
+   0053 0D                 2918 	.db 0x0D
+   0054 0A                 2919 	.db 0x0A
+   0055 00                 2920 	.db 0x00
+   0056                    2921 __str_3:
+   0056 0D                 2922 	.db 0x0D
+   0057 0A                 2923 	.db 0x0A
+   0058 4E 6F 20 73 70 61  2924 	.ascii "No space left to store new generated characted. Deleting t"
+        63 65 20 6C 65 66
+        74 20 74 6F 20 73
+        74 6F 72 65 20 6E
+        65 77 20 67 65 6E
+        65 72 61 74 65 64
+        20 63 68 61 72 61
+        63 74 65 64 2E 20
+        44 65 6C 65 74 69
+        6E 67 20 74
+   0092 68 65 20 31 73 74  2925 	.ascii "he 1st generated char and storing it there."
+        20 67 65 6E 65 72
+        61 74 65 64 20 63
+        68 61 72 20 61 6E
+        64 20 73 74 6F 72
+        69 6E 67 20 69 74
+        20 74 68 65 72 65
+        2E
+   00BD 00                 2926 	.db 0x00
+   00BE                    2927 __str_4:
+   00BE 45 6E 74 65 72 20  2928 	.ascii "Enter the row value between 0 to 3"
+        74 68 65 20 72 6F
+        77 20 76 61 6C 75
+        65 20 62 65 74 77
+        65 65 6E 20 30 20
+        74 6F 20 33
+   00E0 0D                 2929 	.db 0x0D
+   00E1 0A                 2930 	.db 0x0A
+   00E2 00                 2931 	.db 0x00
+   00E3                    2932 __str_5:
+   00E3 69 6E 76 61 6C 69  2933 	.ascii "invalid value"
+        64 20 76 61 6C 75
+        65
+   00F0 0D                 2934 	.db 0x0D
+   00F1 0A                 2935 	.db 0x0A
+   00F2 00                 2936 	.db 0x00
+   00F3                    2937 __str_6:
+   00F3 45 6E 74 65 72 20  2938 	.ascii "Enter the column value"
+        74 68 65 20 63 6F
+        6C 75 6D 6E 20 76
+        61 6C 75 65
+   0109 0D                 2939 	.db 0x0D
+   010A 0A                 2940 	.db 0x0A
+   010B 00                 2941 	.db 0x00
+   010C                    2942 __str_7:
+   010C 45 6E 74 65 72 20  2943 	.ascii "Enter the Character"
+        74 68 65 20 43 68
+        61 72 61 63 74 65
+        72
+   011F 0D                 2944 	.db 0x0D
+   0120 0A                 2945 	.db 0x0A
+   0121 00                 2946 	.db 0x00
+   0122                    2947 __str_8:
+   0122 45 6E 74 65 72 20  2948 	.ascii "Enter the string"
+        74 68 65 20 73 74
+        72 69 6E 67
+   0132 0D                 2949 	.db 0x0D
+   0133 0A                 2950 	.db 0x0A
+   0134 00                 2951 	.db 0x00
+   0135                    2952 __str_9:
+   0135 45 6E 74 65 72 20  2953 	.ascii "Enter the position where you want to print the custom charac"
+        74 68 65 20 70 6F
+        73 69 74 69 6F 6E
+        20 77 68 65 72 65
+        20 79 6F 75 20 77
+        61 6E 74 20 74 6F
+        20 70 72 69 6E 74
+        20 74 68 65 20 63
+        75 73 74 6F 6D 20
+        63 68 61 72 61 63
+   0171 74 65 72 2E        2954 	.ascii "ter."
+   0175 0D                 2955 	.db 0x0D
+   0176 0A                 2956 	.db 0x0A
+   0177 00                 2957 	.db 0x00
+   0178                    2958 __str_10:
+   0178 45 6E 74 65 72 20  2959 	.ascii "Enter the position of the custom character generated: "
+        74 68 65 20 70 6F
+        73 69 74 69 6F 6E
+        20 6F 66 20 74 68
+        65 20 63 75 73 74
+        6F 6D 20 63 68 61
+        72 61 63 74 65 72
+        20 67 65 6E 65 72
+        61 74 65 64 3A 20
+   01AE 00                 2960 	.db 0x00
+   01AF                    2961 __str_11:
+   01AF 0D                 2962 	.db 0x0D
+   01B0 0A                 2963 	.db 0x0A
+   01B1 20 45 4E 54 45 52  2964 	.ascii " ENTER ANY ONE OF THE FOLLOWING OPTIONS: "
+        20 41 4E 59 20 4F
+        4E 45 20 4F 46 20
+        54 48 45 20 46 4F
+        4C 4C 4F 57 49 4E
+        47 20 4F 50 54 49
+        4F 4E 53 3A 20
+   01DA 0D                 2965 	.db 0x0D
+   01DB 0A                 2966 	.db 0x0A
+   01DC 00                 2967 	.db 0x00
+   01DD                    2968 __str_12:
+   01DD 30 2E 20 45 58 49  2969 	.ascii "0. EXIT"
+        54
+   01E4 0D                 2970 	.db 0x0D
+   01E5 0A                 2971 	.db 0x0A
+   01E6 00                 2972 	.db 0x00
+   01E7                    2973 __str_13:
+   01E7 31 2E 20 53 69 6D  2974 	.ascii "1. Simple program to demonstrate LCD functions "
+        70 6C 65 20 70 72
+        6F 67 72 61 6D 20
+        74 6F 20 64 65 6D
+        6F 6E 73 74 72 61
+        74 65 20 4C 43 44
+        20 66 75 6E 63 74
+        69 6F 6E 73 20
+   0216 0D                 2975 	.db 0x0D
+   0217 0A                 2976 	.db 0x0A
+   0218 00                 2977 	.db 0x00
+   0219                    2978 __str_14:
+   0219 32 2E 20 54 6F 20  2979 	.ascii "2. To create custom characters "
+        63 72 65 61 74 65
+        20 63 75 73 74 6F
+        6D 20 63 68 61 72
+        61 63 74 65 72 73
+        20
+   0238 0D                 2980 	.db 0x0D
+   0239 0A                 2981 	.db 0x0A
+   023A 00                 2982 	.db 0x00
+   023B                    2983 __str_15:
+   023B 33 2E 20 44 44 52  2984 	.ascii "3. DDRAM dump in hex"
+        41 4D 20 64 75 6D
+        70 20 69 6E 20 68
+        65 78
+   024F 0D                 2985 	.db 0x0D
+   0250 0A                 2986 	.db 0x0A
+   0251 00                 2987 	.db 0x00
+   0252                    2988 __str_16:
+   0252 34 2E 20 43 47 52  2989 	.ascii "4. CGRAM dump in hex"
+        41 4D 20 64 75 6D
+        70 20 69 6E 20 68
+        65 78
+   0266 0D                 2990 	.db 0x0D
+   0267 0A                 2991 	.db 0x0A
+   0268 00                 2992 	.db 0x00
+   0269                    2993 __str_17:
+   0269 35 2E 20 43 6C 65  2994 	.ascii "5. Clear LCD display"
+        61 72 20 4C 43 44
+        20 64 69 73 70 6C
+        61 79
+   027D 0D                 2995 	.db 0x0D
+   027E 0A                 2996 	.db 0x0A
+   027F 00                 2997 	.db 0x00
+   0280                    2998 __str_18:
+   0280 36 2E 20 4D 6F 76  2999 	.ascii "6. Move cursor to user defined position"
+        65 20 63 75 72 73
+        6F 72 20 74 6F 20
+        75 73 65 72 20 64
+        65 66 69 6E 65 64
+        20 70 6F 73 69 74
+        69 6F 6E
+   02A7 0D                 3000 	.db 0x0D
+   02A8 0A                 3001 	.db 0x0A
+   02A9 00                 3002 	.db 0x00
+   02AA                    3003 __str_19:
+   02AA 37 2E 20 44 69 73  3004 	.ascii "7. Display entered character on the LCD"
+        70 6C 61 79 20 65
+        6E 74 65 72 65 64
+        20 63 68 61 72 61
+        63 74 65 72 20 6F
+        6E 20 74 68 65 20
+        4C 43 44
+   02D1 0D                 3005 	.db 0x0D
+   02D2 0A                 3006 	.db 0x0A
+   02D3 00                 3007 	.db 0x00
+   02D4                    3008 __str_20:
+   02D4 38 2E 20 44 69 73  3009 	.ascii "8. Display entered string on the LCD"
+        70 6C 61 79 20 65
+        6E 74 65 72 65 64
+        20 73 74 72 69 6E
+        67 20 6F 6E 20 74
+        68 65 20 4C 43 44
+   02F8 0D                 3010 	.db 0x0D
+   02F9 0A                 3011 	.db 0x0A
+   02FA 00                 3012 	.db 0x00
+   02FB                    3013 __str_21:
+   02FB 39 2E 20 44 69 73  3014 	.ascii "9. Display created character on the LCD"
+        70 6C 61 79 20 63
+        72 65 61 74 65 64
+        20 63 68 61 72 61
+        63 74 65 72 20 6F
+        6E 20 74 68 65 20
+        4C 43 44
+   0322 0D                 3015 	.db 0x0D
+   0323 0A                 3016 	.db 0x0A
+   0324 00                 3017 	.db 0x00
+   0325                    3018 __str_22:
+   0325 41 2E 20 47 65 6E  3019 	.ascii "A. Generate and Display CU logo"
+        65 72 61 74 65 20
+        61 6E 64 20 44 69
+        73 70 6C 61 79 20
+        43 55 20 6C 6F 67
+        6F
+   0344 0D                 3020 	.db 0x0D
+   0345 0A                 3021 	.db 0x0A
+   0346 00                 3022 	.db 0x00
+   0347                    3023 __str_23:
+   0347 45 6E 74 65 72 20  3024 	.ascii "Enter Option: "
+        4F 70 74 69 6F 6E
+        3A 20
+   0355 00                 3025 	.db 0x00
+   0356                    3026 __str_24:
+   0356 54 6F 20 63 72 65  3027 	.ascii "To create custom character on LCD"
+        61 74 65 20 63 75
+        73 74 6F 6D 20 63
+        68 61 72 61 63 74
+        65 72 20 6F 6E 20
+        4C 43 44
+   0377 0D                 3028 	.db 0x0D
+   0378 0A                 3029 	.db 0x0A
+   0379 00                 3030 	.db 0x00
+   037A                    3031 __str_25:
+   037A 54 6F 20 72 65 61  3032 	.ascii "To read the entire content of the LCD DDRAM and display it i"
+        64 20 74 68 65 20
+        65 6E 74 69 72 65
+        20 63 6F 6E 74 65
+        6E 74 20 6F 66 20
+        74 68 65 20 4C 43
+        44 20 44 44 52 41
+        4D 20 61 6E 64 20
+        64 69 73 70 6C 61
+        79 20 69 74 20 69
+   03B6 6E 20 68 65 78     3033 	.ascii "n hex"
+   03BB 0D                 3034 	.db 0x0D
+   03BC 0A                 3035 	.db 0x0A
+   03BD 20                 3036 	.ascii " "
+   03BE 00                 3037 	.db 0x00
+   03BF                    3038 __str_26:
+   03BF 54 6F 20 72 65 61  3039 	.ascii "To read the entire content of the LCD CGRAM and display it i"
+        64 20 74 68 65 20
+        65 6E 74 69 72 65
+        20 63 6F 6E 74 65
+        6E 74 20 6F 66 20
+        74 68 65 20 4C 43
+        44 20 43 47 52 41
+        4D 20 61 6E 64 20
+        64 69 73 70 6C 61
+        79 20 69 74 20 69
+   03FB 6E 20 68 65 78     3040 	.ascii "n hex"
+   0400 0D                 3041 	.db 0x0D
+   0401 0A                 3042 	.db 0x0A
+   0402 00                 3043 	.db 0x00
+   0403                    3044 __str_27:
+   0403 54 6F 20 63 6C 65  3045 	.ascii "To clear the contents of the LCD"
+        61 72 20 74 68 65
+        20 63 6F 6E 74 65
+        6E 74 73 20 6F 66
+        20 74 68 65 20 4C
+        43 44
+   0423 0D                 3046 	.db 0x0D
+   0424 0A                 3047 	.db 0x0A
+   0425 00                 3048 	.db 0x00
+   0426                    3049 __str_28:
+   0426 4D 6F 76 65 20 63  3050 	.ascii "Move cursor to user defined position"
+        75 72 73 6F 72 20
+        74 6F 20 75 73 65
+        72 20 64 65 66 69
+        6E 65 64 20 70 6F
+        73 69 74 69 6F 6E
+   044A 0D                 3051 	.db 0x0D
+   044B 0A                 3052 	.db 0x0A
+   044C 00                 3053 	.db 0x00
+   044D                    3054 __str_29:
+   044D 54 6F 20 64 69 73  3055 	.ascii "To display the entered character on LCD"
+        70 6C 61 79 20 74
+        68 65 20 65 6E 74
+        65 72 65 64 20 63
+        68 61 72 61 63 74
+        65 72 20 6F 6E 20
+        4C 43 44
+   0474 0D                 3056 	.db 0x0D
+   0475 0A                 3057 	.db 0x0A
+   0476 00                 3058 	.db 0x00
+   0477                    3059 __str_30:
+   0477 54 6F 20 64 69 73  3060 	.ascii "To display the entered string on LCD"
+        70 6C 61 79 20 74
+        68 65 20 65 6E 74
+        65 72 65 64 20 73
+        74 72 69 6E 67 20
+        6F 6E 20 4C 43 44
+   049B 0D                 3061 	.db 0x0D
+   049C 0A                 3062 	.db 0x0A
+   049D 00                 3063 	.db 0x00
+   049E                    3064 __str_31:
+   049E 54 6F 20 64 69 73  3065 	.ascii "To display created custom character on the LCD"
+        70 6C 61 79 20 63
+        72 65 61 74 65 64
+        20 63 75 73 74 6F
+        6D 20 63 68 61 72
+        61 63 74 65 72 20
+        6F 6E 20 74 68 65
+        20 4C 43 44
+   04CC 0D                 3066 	.db 0x0D
+   04CD 0A                 3067 	.db 0x0A
+   04CE 00                 3068 	.db 0x00
+   04CF                    3069 __str_32:
+   04CF 45 4E 54 45 52 20  3070 	.ascii "ENTER VALUE FROM THE USER MENU"
+        56 41 4C 55 45 20
+        46 52 4F 4D 20 54
+        48 45 20 55 53 45
+        52 20 4D 45 4E 55
+   04ED 0D                 3071 	.db 0x0D
+   04EE 0A                 3072 	.db 0x0A
+   04EF 00                 3073 	.db 0x00
+   04F0                    3074 __str_33:
+   04F0 31 2E 20 57 52 49  3075 	.ascii "1. WRITE BYTE "
+        54 45 20 42 59 54
+        45 20
+   04FE 0D                 3076 	.db 0x0D
+   04FF 0A                 3077 	.db 0x0A
+   0500 00                 3078 	.db 0x00
+   0501                    3079 __str_34:
+   0501 32 2E 20 52 45 41  3080 	.ascii "2. READ BYTE "
+        44 20 42 59 54 45
+        20
+   050E 0D                 3081 	.db 0x0D
+   050F 0A                 3082 	.db 0x0A
+   0510 00                 3083 	.db 0x00
+   0511                    3084 __str_35:
+   0511 33 2E 20 48 45 58  3085 	.ascii "3. HEX dump"
+        20 64 75 6D 70
+   051C 0D                 3086 	.db 0x0D
+   051D 0A                 3087 	.db 0x0A
+   051E 00                 3088 	.db 0x00
+   051F                    3089 __str_36:
+   051F 34 2E 20 49 32 63  3090 	.ascii "4. I2c RESET"
+        20 52 45 53 45 54
+   052B 0D                 3091 	.db 0x0D
+   052C 0A                 3092 	.db 0x0A
+   052D 00                 3093 	.db 0x00
+   052E                    3094 __str_37:
+   052E 54 4F 20 57 52 49  3095 	.ascii "TO WRITE BYTE"
+        54 45 20 42 59 54
+        45
+   053B 0D                 3096 	.db 0x0D
+   053C 0A                 3097 	.db 0x0A
+   053D 00                 3098 	.db 0x00
+   053E                    3099 __str_38:
+   053E 0D                 3100 	.db 0x0D
+   053F 0A                 3101 	.db 0x0A
+   0540 45 4E 54 45 52 20  3102 	.ascii "ENTER AN EEPROM ADDRESS between 0000 and 07ff: "
+        41 4E 20 45 45 50
+        52 4F 4D 20 41 44
+        44 52 45 53 53 20
+        62 65 74 77 65 65
+        6E 20 30 30 30 30
+        20 61 6E 64 20 30
+        37 66 66 3A 20
+   056F 00                 3103 	.db 0x00
+   0570                    3104 __str_39:
+   0570 0D                 3105 	.db 0x0D
+   0571 0A                 3106 	.db 0x0A
+   0572 49 6E 76 61 6C 69  3107 	.ascii "Invalid Address"
+        64 20 41 64 64 72
+        65 73 73
+   0581 0D                 3108 	.db 0x0D
+   0582 0A                 3109 	.db 0x0A
+   0583 00                 3110 	.db 0x00
+   0584                    3111 __str_40:
+   0584 0D                 3112 	.db 0x0D
+   0585 0A                 3113 	.db 0x0A
+   0586 45 4E 54 45 52 20  3114 	.ascii "ENTER THE DATA TO BE WRITTEN BEWTWEEN 00 TO FF: "
+        54 48 45 20 44 41
+        54 41 20 54 4F 20
+        42 45 20 57 52 49
+        54 54 45 4E 20 42
+        45 57 54 57 45 45
+        4E 20 30 30 20 54
+        4F 20 46 46 3A 20
+   05B6 00                 3115 	.db 0x00
+   05B7                    3116 __str_41:
+   05B7 0D                 3117 	.db 0x0D
+   05B8 0A                 3118 	.db 0x0A
+   05B9 54 48 45 20 45 4E  3119 	.ascii "THE ENTERED ADDRESS %03x"
+        54 45 52 45 44 20
+        41 44 44 52 45 53
+        53 20 25 30 33 78
+   05D1 0D                 3120 	.db 0x0D
+   05D2 0A                 3121 	.db 0x0A
+   05D3 00                 3122 	.db 0x00
+   05D4                    3123 __str_42:
+   05D4 0D                 3124 	.db 0x0D
+   05D5 0A                 3125 	.db 0x0A
+   05D6 54 48 45 20 45 4E  3126 	.ascii "THE ENTERED DATA %02x"
+        54 45 52 45 44 20
+        44 41 54 41 20 25
+        30 32 78
+   05EB 0D                 3127 	.db 0x0D
+   05EC 0A                 3128 	.db 0x0A
+   05ED 00                 3129 	.db 0x00
+   05EE                    3130 __str_43:
+   05EE 54 4F 20 52 45 41  3131 	.ascii "TO READ BYTE"
+        44 20 42 59 54 45
+   05FA 0D                 3132 	.db 0x0D
+   05FB 0A                 3133 	.db 0x0A
+   05FC 00                 3134 	.db 0x00
+   05FD                    3135 __str_44:
+   05FD 45 4E 54 45 52 20  3136 	.ascii "ENTER AN EEPROM ADDRESS between 0000 and 07ff: "
+        41 4E 20 45 45 50
+        52 4F 4D 20 41 44
+        44 52 45 53 53 20
+        62 65 74 77 65 65
+        6E 20 30 30 30 30
+        20 61 6E 64 20 30
+        37 66 66 3A 20
+   062C 00                 3137 	.db 0x00
+   062D                    3138 __str_45:
+   062D 0D                 3139 	.db 0x0D
+   062E 0A                 3140 	.db 0x0A
+   062F 54 68 65 20 63 6F  3141 	.ascii "The content of the address in the format AAA:DD is: "
+        6E 74 65 6E 74 20
+        6F 66 20 74 68 65
+        20 61 64 64 72 65
+        73 73 20 69 6E 20
+        74 68 65 20 66 6F
+        72 6D 61 74 20 41
+        41 41 3A 44 44 20
+        69 73 3A 20
+   0663 00                 3142 	.db 0x00
+   0664                    3143 __str_46:
+   0664 25 30 33 78 3A 25  3144 	.ascii "%03x:%02x"
+        30 32 78
+   066D 0D                 3145 	.db 0x0D
+   066E 0A                 3146 	.db 0x0A
+   066F 00                 3147 	.db 0x00
+   0670                    3148 __str_47:
+   0670 54 6F 20 48 45 58  3149 	.ascii "To HEX dump"
+        20 64 75 6D 70
+   067B 0D                 3150 	.db 0x0D
+   067C 0A                 3151 	.db 0x0A
+   067D 00                 3152 	.db 0x00
+   067E                    3153 __str_48:
+   067E 45 4E 54 45 52 20  3154 	.ascii "ENTER THE STARTING ADDRESS BETWEEN 0000 and 07ff: "
+        54 48 45 20 53 54
+        41 52 54 49 4E 47
+        20 41 44 44 52 45
+        53 53 20 42 45 54
+        57 45 45 4E 20 30
+        30 30 30 20 61 6E
+        64 20 30 37 66 66
+        3A 20
+   06B0 00                 3155 	.db 0x00
+   06B1                    3156 __str_49:
+   06B1 0D                 3157 	.db 0x0D
+   06B2 0A                 3158 	.db 0x0A
+   06B3 45 4E 54 45 52 20  3159 	.ascii "ENTER THR END ADDRESS BETWEEN 0000 and 07ff: "
+        54 48 52 20 45 4E
+        44 20 41 44 44 52
+        45 53 53 20 42 45
+        54 57 45 45 4E 20
+        30 30 30 30 20 61
+        6E 64 20 30 37 66
+        66 3A 20
+   06E0 00                 3160 	.db 0x00
+   06E1                    3161 __str_50:
+   06E1 0D                 3162 	.db 0x0D
+   06E2 0A                 3163 	.db 0x0A
+   06E3 45 6E 64 20 41 64  3164 	.ascii "End Address should be greater than Start Address"
+        64 72 65 73 73 20
+        73 68 6F 75 6C 64
+        20 62 65 20 67 72
+        65 61 74 65 72 20
+        74 68 61 6E 20 53
+        74 61 72 74 20 41
+        64 64 72 65 73 73
+   0713 0D                 3165 	.db 0x0D
+   0714 0A                 3166 	.db 0x0A
+   0715 00                 3167 	.db 0x00
+   0716                    3168 __str_51:
+   0716 0D                 3169 	.db 0x0D
+   0717 0A                 3170 	.db 0x0A
+   0718 54 68 65 20 67 69  3171 	.ascii "The given range of address is %03x to %03x."
+        76 65 6E 20 72 61
+        6E 67 65 20 6F 66
+        20 61 64 64 72 65
+        73 73 20 69 73 20
+        25 30 33 78 20 74
+        6F 20 25 30 33 78
+        2E
+   0743 00                 3172 	.db 0x00
+   0744                    3173 __str_52:
+   0744 0D                 3174 	.db 0x0D
+   0745 0A                 3175 	.db 0x0A
+   0746 48 45 58 20 44 55  3176 	.ascii "HEX DUMP"
+        4D 50
+   074E 0D                 3177 	.db 0x0D
+   074F 0A                 3178 	.db 0x0A
+   0750 00                 3179 	.db 0x00
+   0751                    3180 __str_53:
+   0751 0D                 3181 	.db 0x0D
+   0752 0A                 3182 	.db 0x0A
+   0753 25 30 33 78 3A 20  3183 	.ascii "%03x: "
+   0759 00                 3184 	.db 0x00
+   075A                    3185 __str_54:
+   075A 25 30 32 78 20     3186 	.ascii "%02x "
+   075F 00                 3187 	.db 0x00
+   0760                    3188 __str_55:
+   0760 49 32 63 20 73 6F  3189 	.ascii "I2c software reset"
+        66 74 77 61 72 65
+        20 72 65 73 65 74
+   0772 00                 3190 	.db 0x00
+   0773                    3191 __str_56:
+   0773 49 6E 76 61 6C 69  3192 	.ascii "Invalid Option"
+        64 20 4F 70 74 69
+        6F 6E
+   0781 0D                 3193 	.db 0x0D
+   0782 0A                 3194 	.db 0x0A
+   0783 00                 3195 	.db 0x00
+   0784                    3196 __str_57:
+   0784 31 2E 20 52 45 53  3197 	.ascii "1. RESET CLOCK"
+        45 54 20 43 4C 4F
+        43 4B
+   0792 0D                 3198 	.db 0x0D
+   0793 0A                 3199 	.db 0x0A
+   0794 00                 3200 	.db 0x00
+   0795                    3201 __str_58:
+   0795 32 2E 20 52 45 53  3202 	.ascii "2. RESTART CLOCK "
+        54 41 52 54 20 43
+        4C 4F 43 4B 20
+   07A6 0D                 3203 	.db 0x0D
+   07A7 0A                 3204 	.db 0x0A
+   07A8 00                 3205 	.db 0x00
+   07A9                    3206 __str_59:
+   07A9 33 2E 20 53 54 4F  3207 	.ascii "3. STOP CLOCK "
+        50 20 43 4C 4F 43
+        4B 20
+   07B7 0D                 3208 	.db 0x0D
+   07B8 0A                 3209 	.db 0x0A
+   07B9 00                 3210 	.db 0x00
+   07BA                    3211 __str_60:
+   07BA 49 4E 56 41 4C 49  3212 	.ascii "INVALID OPTION"
+        44 20 4F 50 54 49
+        4F 4E
+   07C8 00                 3213 	.db 0x00
+   07C9                    3214 __str_61:
+   07C9 31 2E 20 4C 43 44  3215 	.ascii "1. LCD demo "
+        20 64 65 6D 6F 20
+   07D5 0D                 3216 	.db 0x0D
+   07D6 0A                 3217 	.db 0x0A
+   07D7 00                 3218 	.db 0x00
+   07D8                    3219 __str_62:
+   07D8 32 2E 20 49 32 43  3220 	.ascii "2. I2C demo "
+        20 64 65 6D 6F 20
+   07E4 0D                 3221 	.db 0x0D
+   07E5 0A                 3222 	.db 0x0A
+   07E6 00                 3223 	.db 0x00
+   07E7                    3224 __str_63:
+   07E7 33 2E 20 43 6C 6F  3225 	.ascii "3. Clock menu"
+        63 6B 20 6D 65 6E
+        75
+   07F4 0D                 3226 	.db 0x0D
+   07F5 0A                 3227 	.db 0x0A
+   07F6 00                 3228 	.db 0x00
+   07F7                    3229 __str_64:
+   07F7 49 6E 76 61 6C 69  3230 	.ascii "Invalid Option."
+        64 20 4F 70 74 69
+        6F 6E 2E
+   0806 0D                 3231 	.db 0x0D
+   0807 0A                 3232 	.db 0x0A
+   0808 00                 3233 	.db 0x00
+                           3234 	.area XINIT   (CODE)
+   0000                    3235 __xinit__ccode:
+   0000 00                 3236 	.db #0x00	; 0
+                           3237 	.area CABS    (ABS,CODE)

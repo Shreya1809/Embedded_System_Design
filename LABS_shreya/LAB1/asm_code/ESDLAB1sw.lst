@@ -1,0 +1,35 @@
+0000:              .ORG 0000H
+0000: C3           CLR C            ;clear the carry
+0001: 78 8E        START: MOV R0,#0x8E  ;the dividend x is initially stored in 
+0003: E4           CLR A            ;clear the accumulator  
+0004: 75 F0 0C     MOV B, #0x0C     ;the divisor y
+0007: E5 F0        MOV A,B          ;move the value of divisor from register B 
+0009: 60 26        JZ LABEL1        ;check if the value of the divisor stored i
+000B: 85 F0 24     MOV 24H,B        ;Store value of the divisor Y in memory loc
+000E: E8           MOV A,R0         ;store the dividend in accumulator
+000F: 24 01        ADD A,#01        ;add 1 to the accumulator to get x+1
+0011: 40 23        JC LABEL2        ;check if the value of x+1 exceeds 8 bit an
+0013: F5 20        MOV 20H,A        ;store value of x+1 in IRAM memory location
+0015: 79 00        MOV R1,#0        ;initialize counter to 0
+0017: 95 F0        NEXT: SUBB A,B   ;Repeated substraction loop for division
+0019: 09           INC R1           ;increment counter each time a substraction
+001A: 50 FB        JNC NEXT         ;jump to next untill A<B ie carry flag is s
+001C: 19           DEC R1           ;decrements R1 as R1 counts one cycle extra
+001D: 25 F0        ADD A,B          ;Add contents of register A&B to get remain
+001F: C3           CLR C            ;clears the carry bit
+0020: 89 21        MOV 21H,R1       ;R1 is the quotient which is stored in the 
+0022: F5 22        MOV 22H,A        ;A contains the remainder which is stored i
+0024: E5 21        MOV A,21H        ;the quotient is transfered to the accumula
+0026: 33           RLC A            ;rotate left through carry by 1 bit equival
+0027: 33           RLC A            ;Again rotate left through carry by 1 bit e
+0028: 40 11        JC LABEL3        ;check if the result of the mul exceeds 8 b
+002A: F5 23        MOV 23H,A        ;store the result in IRAM memory location 0
+002C: 75 30 00     MOV 30H,#0x00    ;if no error so far,store 0x00 at memory lo
+002F: 01 3E        AJMP ENDLOOP     
+0031: 75 30 02     LABEL1: MOV 30H,#0x02    ;if divisor is 0,store 0x02 at memo
+0034: 01 3E        AJMP ENDLOOP
+0036: 75 30 01     LABEL2: MOV 30H,#0x01    ;if the addition result exceeds 8 b
+0039: 01 3E        AJMP ENDLOOP
+003B: 75 30 03     LABEL3: MOV 30H,#0x03    ;if the multiplication result excee
+003E: 01 3E        ENDLOOP: AJMP ENDLOOP    ;infinite loop
+0040:              .END

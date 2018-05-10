@@ -1,0 +1,145 @@
+# depslib dependency file v1.0
+1512104318 source:c:\users\ashis chakraborty\lab4_esd\clock.c
+	<mcs51/8051.h>
+	<mcs51reg.h>
+	<mcs51/at89c51ed2.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	"lcd.h"
+	"clock.h"
+	"user_interface.h"
+
+1511945890 c:\users\ashis chakraborty\lab4_esd\lcd.h
+
+1510902889 c:\users\ashis chakraborty\lab4_esd\clock.h
+
+1510903004 c:\users\ashis chakraborty\lab4_esd\user_interface.h
+
+1510968547 source:c:\users\ashis chakraborty\lab4_esd\i2c.c
+	<mcs51/8051.h>
+	<mcs51reg.h>
+	<mcs51/at89c51ed2.h>
+	"i2c.h"
+
+1510872458 c:\users\ashis chakraborty\lab4_esd\i2c.h
+
+1512104865 source:c:\users\ashis chakraborty\lab4_esd\lcd.c
+	<mcs51/8051.h>
+	<mcs51reg.h>
+	<mcs51/at89c51ed2.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	"lcd.h"
+	"clock.h"
+	"user_interface.h"
+
+1512100720 source:c:\users\gunj manseta\documents\code blocks\lab4_esd\clock.c
+	<mcs51/8051.h>
+	<mcs51reg.h>
+	<mcs51/at89c51ed2.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	"lcd.h"
+	"clock.h"
+	"user_interface.h"
+
+1512977774 c:\users\gunj manseta\documents\code blocks\lab4_esd\lcd.h
+
+1510899290 c:\users\gunj manseta\documents\code blocks\lab4_esd\clock.h
+
+1510899406 c:\users\gunj manseta\documents\code blocks\lab4_esd\user_interface.h
+
+1510964948 source:c:\users\gunj manseta\documents\code blocks\lab4_esd\i2c.c
+	<mcs51/8051.h>
+	<mcs51reg.h>
+	<mcs51/at89c51ed2.h>
+	"i2c.h"
+
+1510868860 c:\users\gunj manseta\documents\code blocks\lab4_esd\i2c.h
+
+1512978017 source:c:\users\gunj manseta\documents\code blocks\lab4_esd\lcd.c
+	<mcs51/8051.h>
+	<mcs51reg.h>
+	<mcs51/at89c51ed2.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	"lcd.h"
+
+1512982670 source:c:\users\gunj manseta\documents\code blocks\lab4_esd\main.c
+	<mcs51/at89c51ed2.h>
+	<string.h>
+	<stdlib.h>
+	<stdio.h>
+	"timer.h"
+	"lcd.h"
+	"serial.h"
+
+1510967934 c:\users\gunj manseta\documents\code blocks\lab4_esd\pcf8574.h
+
+1510189428 c:\users\gunj manseta\documents\code blocks\lab4_esd\serial.h
+
+1510968620 source:c:\users\gunj manseta\documents\code blocks\lab4_esd\pcf8574.c
+	<mcs51/8051.h>
+	<mcs51reg.h>
+	<mcs51/at89c51ed2.h>
+	"i2c.h"
+	"pcf8574.h"
+
+1512981628 source:c:\users\gunj manseta\documents\code blocks\lab4_esd\serial.c
+	<mcs51/at89c51ed2.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"serial.h"
+	"lcd.h"
+
+1512886271 source:c:\users\gunj manseta\documents\code blocks\lab4_esd\user_interface.c
+	"user_interface.h"
+	"lcd.h"
+	"i2c.h"
+	"clock.h"
+	<stdio.h>
+	<mcs51reg.h>
+	<mcs51/at89c51ed2.h>
+
+1512983719 source:c:\users\gunj manseta\documents\code blocks\lab4_esd\timer.c
+	<mcs51/at89c51ed2.h>
+	"timer.h"
+	"lcd.h"
+	"serial.h"
+
+1512982956 c:\users\gunj manseta\documents\code blocks\lab4_esd\timer.h
+
+1512981618 source:c:\users\ashis chakraborty\desktop\esd_project files\lab4_esd\lcd.c
+	<mcs51/8051.h>
+	<mcs51reg.h>
+	<mcs51/at89c51ed2.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	"lcd.h"
+
+1512981376 c:\users\ashis chakraborty\desktop\esd_project files\lab4_esd\lcd.h
+
+1513040910 source:c:\users\ashis chakraborty\desktop\esd_project files\lab4_esd\main.c
+	<mcs51/at89c51ed2.h>
+	<string.h>
+	<stdlib.h>
+	<stdio.h>
+	"lcd.h"
+	"serial.h"
+
+1510193028 c:\users\ashis chakraborty\desktop\esd_project files\lab4_esd\serial.h
+
+1513025164 source:c:\users\ashis chakraborty\desktop\esd_project files\lab4_esd\serial.c
+	<mcs51/at89c51ed2.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"serial.h"
+	"lcd.h"
+

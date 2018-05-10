@@ -1,0 +1,23 @@
+Name     lab2supplementary ;
+PartNo   00 ;
+Date     10/4/2017 ;
+Revision 01 ;
+Designer Engineer ;
+Company  University of Colorado ;
+Assembly None ;
+Location  ;
+Device   g16v8a ;
+
+
+/* *************** INPUT PINS *********************/
+PIN   2  =  A15                       ; /*A15 IS THE INPUT*/ 
+PIN   3  =  WR			     ; /*WR IS THE INPUT*/ 
+
+/* *************** OUTPUT PINS *********************/
+PIN   12  =  ACTIVATE                       ; /* chip enable is taken as the output*/
+/*
+ * Logic:  examples of simple gates expressed in CUPL
+ */
+ACTIVATE = !A15 & !WR ;  /* LATCH WILL NOT ACTIVATE DUIRNG WRITE FOR THE ADDRESSES 8000H TO FFFFH*/
+
+
